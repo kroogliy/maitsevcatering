@@ -1,0 +1,581 @@
+/* Минималистичная страница товара с шрифтом Jost */
+
+/* Основной контейнер */
+.productPageContainer {
+    min-height: 100vh;
+    background: #1a1a1a;
+    padding: 60px 20px 40px;
+    font-family:
+        "Jost",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+/* Навигация назад */
+.breadcrumbs {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.breadcrumbs a {
+    font-family: "Jost", sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs svg {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.breadcrumbs a:hover svg {
+    transform: translateX(-3px);
+}
+
+.breadcrumbs span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Карточка товара */
+.productCard {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    contain: layout;
+}
+
+/* Заголовок скрыт - будет в контенте */
+.cardHeader {
+    display: none;
+}
+
+/* Основной контент */
+.cardBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+    padding: 40px;
+    min-height: 600px;
+}
+
+/* Секция изображения */
+.imageSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+/* Информационная секция */
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+/* Модификаторы для разного количества контента */
+.infoSection.minimalContent {
+    justify-content: center;
+    gap: 40px;
+}
+
+.infoSection.minimalContent .infoTop {
+    flex: 0;
+}
+
+.infoSection.minimalContent .productTitle {
+    margin-bottom: 40px;
+}
+
+.infoSection.extendedContent .detailsSection {
+    margin: 24px 0;
+    padding: 32px 0;
+}
+
+/* Верхняя часть информации */
+.infoTop {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Нижняя часть информации */
+.infoBottom {
+    margin-top: auto;
+}
+
+/* Заголовок товара */
+.productTitle {
+    font-family: "Jost", sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #000;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+/* Секция описания */
+.descriptionSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 0;
+    text-align: center;
+}
+
+.sectionTitle {
+    display: none; /* Скрываем заголовки секций для минимализма */
+}
+
+.productDescription {
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 auto;
+    letter-spacing: 0.01em;
+    max-width: 480px;
+}
+
+/* Секция деталей */
+.detailsSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    margin: 32px 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 40px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.detailIcon {
+    font-size: 20px;
+    color: #000;
+    opacity: 0.3;
+    flex-shrink: 0;
+}
+
+.detailContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.detailLabel {
+    font-family: "Jost", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.detailValue {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: 0.01em;
+}
+
+/* Секция цены */
+.priceSection {
+    padding: 32px 0 24px;
+    text-align: center;
+}
+
+.priceBox {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.priceLabel {
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.priceValue {
+    font-family: "Jost", sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: #000;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+/* Секция корзины */
+.cartSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Контролы количества */
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    justify-self: start;
+}
+
+.controlButton {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controlButton:hover {
+    border-color: #000;
+    background: #000;
+}
+
+.controlButton:hover svg {
+    color: #fff;
+}
+
+.controlButton svg {
+    width: 20px;
+    height: 20px;
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+.quantityDisplay {
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Кнопка добавления в корзину */
+.addToCartButton {
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 240px;
+}
+
+/* Стили для пустых деталей */
+.detailsGrid:empty {
+    display: none;
+}
+
+.detailsSection:has(.detailsGrid:empty) {
+    display: none;
+}
+
+/* Компактный режим для товаров без деталей */
+.infoSection:not(:has(.detailsSection)) .descriptionSection,
+.infoSection:not(:has(.descriptionSection)) .detailsSection {
+    padding: 60px 0;
+    flex: 1;
+}
+
+/* Центрирование при минимальном контенте */
+.infoSection:not(:has(.detailsSection)):not(:has(.descriptionSection)) {
+    justify-content: center;
+}
+
+.infoSection:not(:has(.detailsSection)):not(:has(.descriptionSection))
+    .infoTop {
+    flex: 0;
+    margin-bottom: 40px;
+}
+
+.infoSection:not(:has(.detailsSection)):not(:has(.descriptionSection))
+    .infoBottom {
+    margin-top: 0;
+}
+
+.addToCartButton:hover {
+    background: #fff;
+    color: #000;
+}
+
+.addToCartButton:active {
+    transform: scale(0.98);
+}
+
+/* Изображения */
+.productImageDrinks,
+.productImageMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.productImageDrinks {
+    object-fit: contain;
+    padding: 20px;
+    background: #fff;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+    .cardBody {
+        gap: 60px;
+    }
+
+    .productTitle {
+        font-size: 32px;
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .productPageContainer {
+        padding: 60px 20px 40px;
+    }
+
+    .infoSection {
+        padding: 24px;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    .infoTop,
+    .infoBottom {
+        width: 100%;
+    }
+
+    .breadcrumbs {
+        margin-bottom: 24px;
+    }
+
+    .cardBody {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .imageSection {
+        padding: 10px;
+    }
+
+    .imageWrapper {
+        max-width: 100%;
+        aspect-ratio: 4/3;
+    }
+
+    .productTitle {
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .productDescription {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .descriptionSection {
+        padding: 20px 0;
+    }
+
+    .detailsSection {
+        margin: 24px 0;
+        padding: 24px 0;
+        align-items: flex-start;
+    }
+
+    .detailsGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        width: 100%;
+        max-width: none;
+    }
+
+    .priceSection {
+        padding: 24px 0 20px;
+        text-align: left;
+    }
+
+    .priceBox {
+        align-items: flex-start;
+    }
+
+    .priceValue {
+        font-size: 36px;
+    }
+
+    .cartSection {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding-top: 24px;
+    }
+
+    .quantityControls {
+        justify-content: center;
+        padding: 16px 0;
+        border: 1px solid #e5e5e5;
+        background: #fafafa;
+    }
+
+    .addToCartButton {
+        width: 100%;
+        min-width: auto;
+        padding: 16px 24px;
+    }
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 480px) {
+    .productPageContainer {
+        padding: 40px 16px 32px;
+    }
+
+    .productTitle {
+        font-size: 24px;
+    }
+
+    .productDescription {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .detailLabel {
+        font-size: 11px;
+    }
+
+    .detailValue {
+        font-size: 14px;
+    }
+
+    .priceValue {
+        font-size: 32px;
+    }
+
+    .controlButton {
+        width: 36px;
+        height: 36px;
+    }
+
+    .controlButton svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .quantityDisplay {
+        font-size: 16px;
+    }
+
+    .addToCartButton {
+        font-size: 13px;
+        padding: 14px 20px;
+    }
+}
+
+/* Анимации загрузки изображения */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.imageWrapper img {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Фокус для доступности */
+.controlButton:focus-visible,
+.addToCartButton:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+.breadcrumbs a:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 4px;
+    border-radius: 2px;
+}

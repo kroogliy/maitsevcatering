@@ -1,0 +1,562 @@
+/* Georgia Map Section - Interactive culinary map */
+.georgia-map-section {
+    min-height: auto;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 3vw, 2rem) 0;
+    position: relative;
+}
+
+/* Container */
+.georgia-map-container {
+    max-width: 1800px;
+    width: 100%;
+    padding: 0 clamp(0.5rem, 2vw, 2rem);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Header */
+.map-header {
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 4rem);
+    will-change: transform, opacity;
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+.map-title {
+    font-family: "Felidae", serif;
+    font-size: clamp(3rem, 7vw, 9rem);
+    font-weight: 200;
+    color: white;
+    line-height: 1.1;
+    margin: 0 0 clamp(0.5rem, 1.5vw, 1rem) 0;
+    letter-spacing: -0.02em;
+}
+
+.map-subtitle {
+    font-family: "Felidae", serif;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.2;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Map Wrapper */
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+    will-change: transform;
+    width: 100%;
+}
+
+/* Map SVG Container */
+.map-svg-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+    box-sizing: border-box;
+}
+
+/* SVG Map */
+.georgia-svg {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+    fill: transparent !important;
+}
+
+/* Georgian Regions - Enhanced hover with isolation */
+.land {
+    fill: rgba(255, 255, 255, 0.03);
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    filter: drop-shadow(0 0 0 transparent);
+}
+
+.land:hover {
+    fill: rgba(212, 175, 55, 0.15) !important;
+    stroke: rgba(212, 175, 55, 1) !important;
+    stroke-width: 3px !important;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8)) !important;
+    z-index: 999 !important;
+    position: relative !important;
+}
+
+/* Region tooltip */
+.region-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-family: "NyghtSerif", serif;
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+}
+
+.region-tooltip.visible {
+    opacity: 1;
+}
+
+/* SVG container positioning for tooltips */
+.map-svg-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Georgia Map Image */
+.georgia-map-image {
+    width: 100%;
+    height: 100%;
+}
+
+/* Region Points - Static with hover effects */
+.region-point {
+    fill: rgba(212, 175, 55, 0.9);
+    stroke: rgba(255, 255, 255, 1);
+    stroke-width: 2;
+    cursor: pointer;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+/* Hover effect removed to prevent points from moving */
+
+/* Point labels */
+.point-label {
+    font-family: "NyghtSerif", serif;
+    font-size: 1rem;
+    fill: rgba(212, 175, 55, 1);
+    text-anchor: middle;
+    pointer-events: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    will-change: transform, opacity;
+}
+
+/* Enhanced Culinary Points */
+.culinary-point {
+    fill: rgba(212, 175, 55, 0.8);
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-width: 2;
+    cursor: pointer;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    pointer-events: all;
+    will-change: transform, opacity;
+}
+
+/* Hover effect removed to prevent points from moving */
+
+/* Point Image Popup */
+.point-image-popup {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    /*padding: 8px;*/
+    pointer-events: none;
+    z-index: 100000;
+    transform: translateX(-50%);
+    /*box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);*/
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.point-image-popup img {
+    width: 280px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.point-image-popup .popup-title {
+    font-family: "Forum", serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 0.1rem;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Mobile: Make popup clickable and larger */
+@media (max-width: 768px) {
+    .point-image-popup {
+        pointer-events: all;
+        transform: translateX(-50%) translateY(-50%);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 1001;
+        padding: 16px;
+        max-width: 90vw;
+        margin-top: 0;
+    }
+
+    .point-image-popup img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        max-height: 300px;
+    }
+
+    .point-image-popup .popup-title {
+        font-size: 1.1rem;
+        margin-top: 12px;
+    }
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-overlay {
+        display: block;
+    }
+}
+
+/* Culinary Cards */
+.culinary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+    margin: 0 auto clamp(1rem, 3vw, 2rem);
+    box-sizing: border-box;
+}
+
+.culinary-card {
+    background: rgba(0, 0, 0, 0.1);
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    will-change: transform, opacity;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+}
+
+.culinary-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255 0.1);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.card-title {
+    font-family: "Viaoda", serif;
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    font-weight: 400;
+    color: #d4af37;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.card-region {
+    font-family: "Jost", sans-serif;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-description {
+    font-family: "Jost", sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1029px) {
+    .map-wrapper {
+        gap: 3rem;
+    }
+
+    .culinary-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        max-width: 800px;
+        gap: 1.2rem;
+        /*flex-direction: column;*/
+    }
+
+    .map-svg-container {
+        max-width: 800px;
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .georgia-map-section {
+        padding: 3rem 0;
+    }
+
+    .georgia-map-container {
+        padding: 0 1rem;
+        width: 100%;
+    }
+
+    .map-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .map-title {
+        font-size: clamp(2.5rem, 10vw, 5rem);
+    }
+
+    .map-subtitle {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .map-wrapper {
+        gap: 2rem;
+    }
+
+    .culinary-cards {
+        grid-template-columns: 1fr;
+        padding: 0 0.5rem;
+    }
+
+    .culinary-card {
+        padding: 1.5rem;
+    }
+
+    .map-svg-container {
+        margin-bottom: 1.5rem;
+        padding: 0;
+    }
+
+    .georgia-svg {
+        max-height: 450px;
+    }
+}
+
+/* Responsive Design - Small Mobile */
+@media (max-width: 480px) {
+    .georgia-map-section {
+        padding: 2rem 0;
+        min-height: auto;
+    }
+
+    .georgia-map-container {
+        padding: 0 0.75rem;
+    }
+
+    .map-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .map-title {
+        font-size: clamp(2rem, 12vw, 4rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .map-subtitle {
+        font-size: clamp(1.3rem, 5vw, 2rem);
+    }
+
+    .map-wrapper {
+        gap: 1.5rem;
+    }
+
+    .culinary-cards {
+        padding: 0;
+        gap: 1rem;
+    }
+
+    .culinary-card {
+        padding: 1.2rem;
+    }
+
+    .card-title {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+    }
+
+    .card-region {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+    }
+
+    .card-description {
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        line-height: 1.5;
+    }
+
+    .map-svg-container {
+        margin-bottom: 1rem;
+    }
+
+    .georgia-svg {
+        max-height: 380px;
+    }
+}
+
+/* Responsive Design - Extra Small Mobile */
+@media (max-width: 380px) {
+    .georgia-map-section {
+        padding: 1.5rem 0;
+    }
+
+    .georgia-map-container {
+        padding: 0 0.5rem;
+    }
+
+    .map-title {
+        font-size: 1.8rem;
+    }
+
+    .map-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .culinary-card {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.15rem;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
+    }
+
+    .georgia-svg {
+        max-height: 320px;
+    }
+}
+
+/* iPhone specific fixes */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 430px) {
+        .georgia-map-section {
+            padding-bottom: env(safe-area-inset-bottom, 1rem);
+        }
+
+        .georgia-map-container {
+            padding-left: max(0.75rem, env(safe-area-inset-left));
+            padding-right: max(0.75rem, env(safe-area-inset-right));
+        }
+
+        .culinary-cards {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+/* Performance optimizations */
+.georgia-map-section {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+.land,
+.culinary-point,
+.culinary-card {
+    backface-visibility: hidden;
+    will-change: transform, filter, opacity, scale;
+}
+
+/* SVG container optimizations */
+.map-svg-container {
+    contain: layout style paint;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .map-header,
+    .map-wrapper,
+    .culinary-card,
+    .culinary-point,
+    .region-point,
+    .land {
+        transition: none;
+        animation: none;
+    }
+
+    .map-header.visible,
+    .map-wrapper.visible,
+    .culinary-card.visible,
+    .culinary-point.visible,
+    .region-point.visible {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .georgia-map-section {
+        min-height: auto;
+        padding: 2rem 0;
+        background: white;
+    }
+
+    .culinary-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .land {
+        fill: #f0f0f0;
+        stroke: #333;
+    }
+
+    .culinary-point,
+    .region-point {
+        fill: #333;
+    }
+
+    .region-tooltip {
+        background: white;
+        color: black;
+        border: 1px solid #ccc;
+    }
+}

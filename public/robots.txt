@@ -1,0 +1,30 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dev-cart-reset
+Disallow: /_next/
+Crawl-delay: 1
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dev-cart-reset
+Crawl-delay: 0.5
+
+# MJ12bot
+User-agent: MJ12bot
+Disallow: /
+
+# AhrefsBot
+User-agent: AhrefsBot
+Disallow: /
+
+# Host
+Host: https://www.maitsevgruusia.ee
+
+# Sitemaps
+Sitemap: https://www.maitsevgruusia.ee/sitemap.xml

@@ -1,0 +1,428 @@
+/* Menu Showcase Section */
+.menu-showcase-section {
+    position: relative;
+    width: 100%;
+}
+
+/* Menu Showcase Wrapper */
+.menu-showcase-wrapper {
+    position: relative;
+    width: 100%;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Loading State */
+.menu-showcase-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Subsections */
+.showcase-subsection {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    position: relative;
+    transition:
+        background-color 0.6s ease,
+        color 0.6s ease;
+}
+
+/* Food Section - Will transition to dark */
+/* Food Section */
+.food-section {
+    background: transparent;
+    color: #1a1a1a;
+    position: relative;
+    isolation: isolate;
+    z-index: 10;
+}
+
+/* Wine Section */
+.wine-section {
+    background: transparent;
+    color: #1a1a1a;
+    position: relative;
+    isolation: isolate;
+    z-index: 10;
+}
+
+/* Анимированный фон overlay */
+.animated-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1d2021;
+    z-index: 0;
+    pointer-events: none;
+    will-change: clip-path;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    clip-path: circle(0% at 50% 0%);
+}
+
+/* Optimize performance for section transitions */
+.food-section *,
+.wine-section * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Smooth color transitions */
+.menu-showcase-section .item-name,
+.menu-showcase-section .showcase-title,
+.menu-showcase-section .showcase-title span,
+.menu-showcase-section .showcase-button {
+    transition: color 0.6s ease;
+}
+
+/* Container */
+.showcase-container {
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+/* Content Layout - Same as intro.js */
+.showcase-content {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    position: relative;
+    z-index: 2; /* Above wave overlay */
+}
+
+/* Content without number - same as with number */
+.showcase-content.no-number {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.showcase-content.no-number .showcase-content-group {
+    flex: 1;
+}
+
+/* Number Typography - Same as intro.js */
+.showcase-number {
+    font-family: "Lighthaus", serif;
+    font-size: clamp(8rem, 15vw, 12rem);
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.1);
+    line-height: 0.8;
+    margin: 0;
+    flex-shrink: 0;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Content Group */
+.showcase-content-group {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+/* Title Typography - Same as intro.js */
+.showcase-title {
+    font-family: "NyghtSerif", serif;
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 300;
+    color: #1a1a1a;
+    line-height: 0.95;
+    margin: 0 0 4rem 0;
+    /*letter-spacing: -0.01em;*/
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+/* Title colors will be changed via GSAP */
+
+.title-first-line {
+    display: block;
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+}
+
+.title-second-line {
+    display: block;
+    /*margin-left: 3rem;*/
+    /*margin-top: -0.3rem;*/
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+}
+
+/* Product Grid */
+.food-grid,
+.wine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Product Items */
+.food-item,
+.wine-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    will-change: transform, opacity;
+    position: relative;
+    z-index: 2;
+}
+
+.food-item:hover,
+.wine-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Image Wrapper */
+.item-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    position: relative;
+}
+
+.item-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.wine-section .item-image-wrapper img {
+    object-fit: contain;
+}
+
+.food-item:hover .item-image-wrapper img,
+.wine-item:hover .item-image-wrapper img {
+    transform: scale(1.06);
+}
+
+/* Hover effect for clickable items */
+.food-item,
+.wine-item {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Item Name */
+.item-name {
+    font-family: "Felidae", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    color: #000;
+    position: relative;
+    z-index: 2;
+}
+
+/* Button */
+.showcase-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #c9a66b;
+    color: #ffffff;
+    border: 1px solid #0a0a0a;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    display: block;
+    will-change: color, border-color, background-color;
+}
+/* Section button styles will be changed via GSAP */
+.food-section .showcase-button,
+.wine-section .showcase-button {
+    background: rgba(212, 175, 55, 0.9);
+    color: #ffffff;
+    border-color: #0a0a0a;
+    transition: all 0.3s ease;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}
+
+.food-section .showcase-button:hover,
+.wine-section .showcase-button:hover {
+    background: transparent;
+    color: #0a0a0a;
+    border-color: #0a0a0a;
+}
+
+/* Dark state for both sections */
+.food-section[data-dark="true"],
+.wine-section[data-dark="true"] {
+    background-color: #1d2021;
+}
+
+.food-section[data-dark="true"] .item-name,
+.food-section[data-dark="true"] .showcase-title,
+.food-section[data-dark="true"] .showcase-title span,
+.wine-section[data-dark="true"] .item-name,
+.wine-section[data-dark="true"] .showcase-title,
+.wine-section[data-dark="true"] .showcase-title span {
+    color: #ffffff;
+}
+
+.food-section[data-dark="true"] .showcase-button,
+.wine-section[data-dark="true"] .showcase-button {
+    background: #0a0a0a;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.food-section[data-dark="true"] .showcase-button:hover,
+.wine-section[data-dark="true"] .showcase-button:hover {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+    .showcase-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .showcase-number {
+        font-size: clamp(6rem, 12vw, 10rem);
+        margin: 0 auto;
+    }
+
+    .title-second-line {
+        margin-left: 0;
+    }
+
+    .food-grid,
+    .wine-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .showcase-subsection {
+        padding: 3rem 0;
+        min-height: auto;
+    }
+
+    .showcase-container {
+        padding: 0 1.5rem;
+    }
+
+    .showcase-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+        margin-bottom: 3rem;
+    }
+
+    .food-grid,
+    .wine-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .item-name {
+        font-size: 1.2rem;
+    }
+
+    .showcase-button {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-container {
+        padding: 0 1rem;
+    }
+
+    .showcase-number {
+        font-size: clamp(4rem, 10vw, 6rem);
+    }
+
+    .showcase-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .food-grid,
+    .wine-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Performance optimizations */
+.menu-showcase-section {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* GPU acceleration for smoother animations */
+.menu-showcase-wrapper,
+.food-section,
+.wine-section,
+.menu-color-overlay,
+.menu-bg-layer {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* Ensure content stays above overlays */
+.showcase-subsection {
+    position: relative;
+    z-index: 2;
+}
+
+/* Prevent flickering during transitions */
+.food-section *,
+.wine-section * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .food-item,
+    .wine-item,
+    .showcase-button {
+        transition: none;
+    }
+
+    .item-image-wrapper img {
+        transition: none;
+    }
+}

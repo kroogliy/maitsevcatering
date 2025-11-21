@@ -1,0 +1,410 @@
+/* Минималистичный хедер с белым фоном и черным шрифтом */
+
+.header {
+    font-family: "Rubik", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+    text-transform: uppercase;
+}
+
+.header:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    height: 90px;
+}
+
+/* Логотип */
+
+.logoImage {
+    width: 150px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.logo:hover .logoText {
+    color: #666666;
+}
+
+/* Навигация - центрирована */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex: 1;
+}
+
+/* Обычные ссылки */
+.navLink {
+    position: relative;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    transition: 0.3s ease;
+    padding: 0.5rem 0;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+
+.navLink:hover {
+    transform: translateY(-3px);
+}
+
+/* Dropdown контейнер */
+.dropdown {
+    position: relative;
+}
+
+.dropdownButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+
+/* Стрелка dropdown */
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.arrowOpen {
+    transform: rotate(180deg);
+}
+
+/* Мега-меню с изображениями */
+.menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    background: #ffffff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    padding: 2rem 0;
+    border-top: 1px solid #f0f0f0;
+    z-index: 999;
+}
+
+/* Контент по центру внутри menu */
+.menu > * {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Элементы меню */
+.menuItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    border: 1px solid transparent;
+}
+
+.menuItem:hover {
+    background: #f8f8f8;
+    border-color: #e0e0e0;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Изображения в меню */
+.menuImage {
+    width: 100%;
+    height: 120px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background: #f0f0f0;
+}
+
+.menuImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menuItem:hover .menuImage img {
+    transform: scale(1.1);
+}
+
+/* Заголовки в меню */
+.menuTitle {
+    color: #000000;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-align: center;
+    font-family: inherit;
+    transition: color 0.3s ease;
+}
+
+.menuItem:hover .menuTitle {
+    color: #333333;
+}
+
+/* Корзина */
+.cart {
+    position: relative;
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        color 0.3s ease,
+        transform 0.2s ease;
+    border-radius: 50%;
+}
+
+.cart:hover {
+    color: #666666;
+    transform: scale(1.1);
+}
+
+.cart:active {
+    transform: scale(0.95);
+}
+
+/* Счетчик корзины */
+.count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0 6px;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+        height: 70px;
+        gap: 2rem;
+    }
+
+    .logoText {
+        font-size: 1.3rem;
+    }
+
+    .nav {
+        gap: 2rem;
+    }
+
+    .navLink,
+    .dropdownButton {
+        font-size: 0.95rem;
+    }
+
+    .menu {
+        top: 70px;
+        padding: 1.75rem 0;
+    }
+
+    .menu > * {
+        max-width: 1200px;
+        padding: 0 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .menuImage {
+        height: 100px;
+    }
+
+    .menuTitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        height: 65px;
+        gap: 1.5rem;
+    }
+
+    .logoText {
+        font-size: 1.1rem;
+    }
+
+    .nav {
+        gap: 1.5rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 0 0.5rem;
+    }
+
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navLink,
+    .dropdownButton {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .menu {
+        top: 65px;
+        padding: 1.5rem 0;
+    }
+
+    .menu > * {
+        padding: 0 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+
+    .menuItem {
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .menuImage {
+        height: 80px;
+    }
+
+    .menuTitle {
+        font-size: 0.85rem;
+    }
+
+    .cart svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .count {
+        min-width: 18px;
+        height: 18px;
+        font-size: 0.65rem;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+        height: 60px;
+        gap: 1rem;
+    }
+
+    .logoText {
+        font-size: 1rem;
+    }
+
+    .nav {
+        gap: 1rem;
+    }
+
+    .navLink,
+    .dropdownButton {
+        font-size: 0.85rem;
+    }
+
+    .menu {
+        top: 60px;
+        padding: 1.25rem 0;
+    }
+
+    .menu > * {
+        padding: 0 0.75rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .menuItem {
+        padding: 0.5rem;
+        gap: 0.4rem;
+    }
+
+    .menuImage {
+        height: 70px;
+    }
+
+    .menuTitle {
+        font-size: 0.75rem;
+    }
+}
+
+/* Улучшенная доступность */
+.navLink:focus-visible,
+.dropdownButton:focus-visible,
+.cart:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Плавность для интерактивных элементов */
+.navLink,
+.dropdownButton,
+.dropdownItem,
+.cart {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

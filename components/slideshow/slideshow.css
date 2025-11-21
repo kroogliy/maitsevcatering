@@ -1,0 +1,202 @@
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Video Element - изначально в нижней половине */
+.slideshow-video {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: 500px 500px 0 0;
+    z-index: 10;
+    will-change: border-radius, width, height, bottom, left;
+    /*box-shadow: 0 -20px 80px rgba(0, 0, 0, 0.15);*/
+}
+
+/* Content Section - поверх всего */
+.slideshow-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 7vh;
+    z-index: 20;
+    pointer-events: none;
+    isolation: isolate;
+}
+
+/* Content Group - оборачивает текст и кнопку для синхронного движения */
+.slideshow-content-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    will-change: transform;
+    position: relative;
+    opacity: 0;
+}
+
+/* Title Styling */
+.slideshow-title {
+    font-family: "Jost", sans-serif;
+    font-size: clamp(4rem, 5vw, 7rem);
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    max-width: 1000px;
+    margin: 0;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.slideshow-title-text {
+    display: block;
+}
+
+.slideshow-title-black {
+    color: #000000;
+}
+
+.slideshow-title-white {
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    clip-path: inset(100% 0 0 0);
+}
+
+/* Button Styling */
+.slideshow-button {
+    font-family: "Rubik", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background: #d81322;
+    border: none;
+    border-radius: 50px;
+    padding: 1.2rem 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    mix-blend-mode: normal;
+}
+
+.slideshow-button:hover {
+    background: #d62828;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .slideshow-title {
+        font-size: clamp(1.8rem, 4.5vw, 4rem);
+    }
+
+    .slideshow-video {
+        border-radius: 400px 400px 0 0;
+    }
+
+    .slideshow-button {
+        font-size: 1.1rem;
+        padding: 1.1rem 2.5rem;
+    }
+
+    .slideshow-title {
+        font-size: clamp(1.8rem, 4.5vw, 4rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .slideshow-content {
+        padding-top: 8vh;
+    }
+
+    .slideshow-title {
+        padding: 0 1rem;
+    }
+
+    .slideshow-video {
+        border-radius: 300px 300px 0 0;
+    }
+
+    .slideshow-button {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow-content {
+        padding-top: 6vh;
+    }
+
+    .slideshow-title {
+        padding: 0 0.5rem;
+    }
+
+    .slideshow-video {
+        border-radius: 200px 200px 0 0;
+    }
+
+    .slideshow-button {
+        font-size: 0.9rem;
+        padding: 0.9rem 1.8rem;
+    }
+}
+
+/* Performance Optimizations */
+.slideshow-video {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+.slideshow-title {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .slideshow-video,
+    .slideshow-title,
+    .slideshow-button {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media (orientation: landscape) and (max-height: 650px) {
+    .slideshow-container {
+        height: 100vh;
+    }
+
+    .slideshow-content {
+        padding-top: 5vh;
+    }
+}

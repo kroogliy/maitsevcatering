@@ -1,0 +1,278 @@
+/* Premium Document Styles for Politics Page - Georgian Restaurant Theme */
+
+/* Page Wrapper */
+.page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: #1a1a1a;
+    padding: 2rem 0;
+    position: relative;
+    border-radius: 12px;
+}
+
+/* Document Container */
+.container {
+    font-family: "NyghtSerif", serif;
+    padding: 80px 40px;
+    max-width: 1600px;
+    margin: 8rem auto;
+    line-height: 1.8;
+    color: #1a1a1a;
+    background: linear-gradient(to bottom, #fff, #f5f5f5);
+    min-height: 100vh;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+/* Main Title */
+.title {
+    font-family: "NyghtSerif", serif;
+    color: #d4af37;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Subtitle */
+.subtitle {
+    font-family: "NyghtSerif", serif;
+    color: #1a1a1a;
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 30px;
+}
+
+/* Section Titles */
+.section-title {
+    color: #1a1a1a;
+    font-family: "NyghtSerif", serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    position: relative;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #d4af37, transparent);
+}
+
+/* Paragraphs */
+.paragraph {
+    margin: 20px 0;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.8;
+    text-align: justify;
+    font-family: "NyghtSerif", serif;
+    letter-spacing: 0.01em;
+}
+
+/* Lists */
+.list {
+    font-size: 1.05rem;
+    list-style-type: none;
+    margin: 20px 0 30px 0;
+    padding: 0;
+    font-family: "NyghtSerif", serif;
+}
+
+.list-item {
+    margin: 14px 0;
+    padding-left: 30px;
+    position: relative;
+    line-height: 1.7;
+    color: #333;
+    letter-spacing: 0.01em;
+}
+
+.list-item::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #d4af37;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+/* Links */
+a {
+    font-family: "NyghtSerif", serif;
+    color: #d4af37;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+    color: #c49f31;
+}
+
+/* Strong text */
+strong {
+    font-weight: 500;
+    color: #1a1a1a;
+    font-family: "NyghtSerif", serif;
+}
+
+/* Document structure improvements */
+.container > *:first-child {
+    margin-top: 0;
+}
+
+.container > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 60px 30px;
+        max-width: 800px;
+        margin: 6rem auto;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 50px;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+        max-width: 100%;
+        margin: 5rem auto;
+        border-radius: 12px;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+
+    .paragraph {
+        font-size: 1rem;
+        margin: 15px 0;
+    }
+
+    .list-item {
+        font-size: 1rem;
+        margin: 10px 0;
+        padding-left: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 15px;
+        margin: 4rem auto;
+        border-radius: 8px;
+    }
+
+    .title {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+        letter-spacing: 0.05em;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        margin-top: 30px;
+    }
+
+    .paragraph {
+        font-size: 0.95rem;
+        text-align: left;
+    }
+
+    .list-item {
+        font-size: 0.95rem;
+        padding-left: 22px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .container {
+        padding: 20px;
+        max-width: none;
+        background: white;
+        color: black;
+    }
+
+    .title {
+        color: black;
+        border-bottom-color: black;
+    }
+
+    .section-title {
+        color: black;
+    }
+
+    .section-title::before {
+        background: black;
+    }
+
+    .paragraph,
+    .list-item {
+        color: black;
+    }
+
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+}

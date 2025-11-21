@@ -1,0 +1,1479 @@
+/* Minimalist Catering Page - Black & White Design */
+
+/* Main Container */
+.container {
+    min-height: 100vh;
+    background: transparent;
+    color: #000000;
+    font-family:
+        "Satoshi",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    padding: 120px 20px 80px;
+    text-align: center;
+    position: relative;
+    /*background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);*/
+}
+
+.heroContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-family:
+        "Ranade",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-transform: uppercase;
+
+    flex-wrap: wrap;
+}
+
+.heroTitleHighlight {
+    font-weight: 400;
+    position: relative;
+    min-width: 400px;
+    display: inline-block;
+    text-align: left;
+    width: 400px;
+    height: 1.2em;
+    overflow: hidden;
+}
+
+.typewriterText {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+    min-width: 400px;
+    width: 400px;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: left;
+    height: 1.2em;
+    line-height: 1.2;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cursor {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 100;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.heroSubtitle {
+    font-size: 1.4rem;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Stats Grid */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.statItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.statItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.statIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    color: #000000;
+    background: #f8f8f8;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.statContent {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: #666666;
+    font-weight: 500;
+    line-height: 1.4;
+    word-wrap: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* Services Section */
+.servicesSection {
+    padding: 100px 20px;
+    background: #f8f9fa;
+}
+
+.servicesContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.sectionSubtitle {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Services Navigation */
+.servicesNav {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+    align-items: center;
+    /*width: 100%;*/
+    max-width: 1400px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    padding: 0 20px;
+    /*box-sizing: border-box;*/
+}
+
+.navButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.navButtonContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 32px;
+    background: #ffffff;
+    border: 2px solid #e5e5e5;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.navButton:hover .navButtonContent {
+    border-color: #cccccc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.navButtonActive .navButtonContent {
+    border-color: #000000;
+    background: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.navButtonIcon {
+    width: 24px;
+    height: 24px;
+    transition: color 0.3s ease;
+}
+
+.navButtonActive .navButtonIcon {
+    color: #ffffff;
+}
+
+.navButtonText {
+    font-family:
+        "Satoshi",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.navButtonActive .navButtonText {
+    color: #ffffff;
+}
+
+/* Service Content */
+.serviceContent {
+    position: relative;
+    min-height: auto;
+    height: auto;
+}
+
+.serviceCard {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    display: none;
+}
+
+.serviceCardActive {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    display: block;
+}
+
+.serviceGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 24px;
+    padding: 60px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    /*height: 100%;*/
+    /*box-sizing: border-box;*/
+}
+
+.serviceInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: 300px;
+    justify-content: center;
+}
+
+.serviceTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.serviceDescription {
+    font-size: 1.2rem;
+    color: #555555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.serviceFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 120px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+}
+
+.featureIcon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.featureText {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.serviceImage {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 16px;
+    display: block;
+}
+
+.serviceImage:hover .image {
+    transform: scale(1.02);
+}
+
+/* FAQ Section */
+.faqSection {
+    padding: 100px 20px;
+    background: #ffffff;
+}
+
+.faqContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faqItem {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faqItem:hover {
+    border-color: #cccccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.faqItemActive {
+    border-color: #000000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.faqQuestion {
+    font-family:
+        "Satoshi",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    width: 100%;
+    padding: 24px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+.faqQuestion:hover {
+    background: #f8f9fa;
+}
+
+.faqIcon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faqIconActive {
+    transform: rotate(90deg);
+}
+
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faqItemActive .faqAnswer {
+    max-height: 200px;
+}
+
+.faqAnswer p {
+    padding: 0 24px 24px;
+    margin: 0;
+    color: #555555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* CTA Section */
+.ctaSection {
+    padding: 100px 20px;
+    /*background: #000000;*/
+    color: #ffffff;
+}
+
+.ctaContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ctaContent {
+    position: relative;
+}
+
+.ctaTitle {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.ctaText {
+    font-size: 1.2rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 0 0 40px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ctaButtons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.ctaButtonPrimary,
+.ctaButtonSecondary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.ctaButtonPrimary {
+    background: #ffffff;
+    color: #000000;
+}
+
+.ctaButtonPrimary:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.ctaButtonSecondary {
+    background: transparent;
+    color: #ffffff;
+}
+
+.ctaButtonSecondary:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.ctaButtonText {
+    font-size: 1rem;
+}
+
+.ctaButtonIcon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Contact Info */
+.contactInfo {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cccccc;
+    font-size: 0.95rem;
+}
+
+.contactIcon {
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+}
+
+/* Team Lunch Section */
+.teamLunchSection {
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.teamLunchContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.teamLunchWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+}
+
+/* Background Pattern */
+.teamLunchPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.patternDot {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.03) 0%,
+        transparent 70%
+    );
+    animation: float 6s ease-in-out infinite;
+}
+
+.patternDot:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.patternDot:nth-child(2) {
+    top: 60%;
+    left: 15%;
+    animation-delay: 1s;
+    width: 150px;
+    height: 150px;
+}
+
+.patternDot:nth-child(3) {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+    width: 100px;
+    height: 100px;
+}
+
+.patternDot:nth-child(4) {
+    bottom: 10%;
+    right: 20%;
+    animation-delay: 3s;
+    width: 180px;
+    height: 180px;
+}
+
+.patternDot:nth-child(5) {
+    bottom: 40%;
+    left: 8%;
+    animation-delay: 4s;
+    width: 120px;
+    height: 120px;
+}
+
+.patternDot:nth-child(6) {
+    top: 70%;
+    right: 5%;
+    animation-delay: 5s;
+    width: 90px;
+    height: 90px;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.1;
+    }
+}
+
+/* Hero Content */
+.teamLunchHero {
+    color: #ffffff;
+    z-index: 3;
+    position: relative;
+}
+
+.teamLunchBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.badgeIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.teamLunchMainTitle {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.teamLunchMainDescription {
+    font-size: 1.2rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 0 0 40px 0;
+    max-width: 500px;
+}
+
+/* Feature Cards */
+.teamLunchFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.teamLunchFeatureCard {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.teamLunchFeatureCard:hover {
+    transform: translateX(8px);
+}
+
+.featureCardIcon {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 12px;
+}
+
+.featureCardIcon img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.featureCardContent h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.featureCardContent p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin: 0;
+}
+
+/* CTA Buttons */
+.teamLunchCTA {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    /*flex-wrap: wrap;*/
+}
+
+.teamLunchButton,
+.teamLunchButtonSecondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.teamLunchButton {
+    background: #ffffff;
+    color: #000000;
+}
+
+.teamLunchButton:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.teamLunchButtonSecondary {
+    background: transparent;
+    color: #ffffff;
+}
+
+.teamLunchButtonSecondary:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.buttonIcon,
+.buttonArrow {
+    width: 20px;
+    height: 20px;
+}
+
+.buttonArrow {
+    transition: transform 0.3s ease;
+}
+
+.teamLunchButton:hover .buttonArrow {
+    transform: translateX(4px);
+}
+
+/* Image Section */
+.teamLunchImageSection {
+    position: relative;
+    z-index: 3;
+}
+
+.imageWrapper {
+    position: relative;
+}
+
+.imageGlow {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 24px;
+    filter: blur(20px);
+    opacity: 0.5;
+}
+
+.teamLunchImage {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Floating Stats */
+.floatingStats {
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 4;
+}
+
+.statCard {
+    background: rgba(255, 255, 255, 1);
+    /*border: 1px solid rgba(255, 255, 255, 0.2);*/
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 100px;
+    /*height: 80px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@media (max-width: 480px) {
+    .statCard {
+        animation: none;
+    }
+}
+
+.statCard:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.statNumber {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.statLabel {
+    font-size: 0.8rem;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .serviceGrid {
+        gap: 40px;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .serviceGrid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 30px;
+        gap: 30px;
+    }
+
+    .serviceContent {
+        min-height: auto;
+        height: auto;
+    }
+
+    .servicesNav {
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .navButtonContent {
+        min-width: 160px;
+        padding: 20px 24px;
+    }
+
+    .teamLunchWrapper {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .teamLunchHero {
+        order: 2;
+    }
+
+    .teamLunchImageSection {
+        order: 1;
+    }
+
+    .floatingStats {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+/* Medium laptops and tablets */
+@media (max-width: 900px) {
+    .statsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        padding: 0 16px;
+    }
+
+    .statItem {
+        padding: 18px;
+        gap: 14px;
+    }
+
+    .statIcon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .statValue {
+        font-size: 1.35rem;
+        line-height: 1.3;
+    }
+
+    .statLabel {
+        font-size: 0.87rem;
+        line-height: 1.4;
+    }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .heroTitle {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .heroTitleHighlight {
+        min-width: 280px;
+        width: 280px;
+        text-align: center;
+        order: 2;
+    }
+
+    .typewriterText {
+        min-width: 280px;
+        width: 280px;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .heroSubtitle {
+        font-size: 1.1rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 18px;
+        box-sizing: border-box;
+    }
+
+    .statItem {
+        padding: 15px;
+        gap: 12px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        align-items: flex-start;
+    }
+
+    .statIcon {
+        width: 42px;
+        height: 42px;
+        margin-top: 1px;
+    }
+
+    .statValue {
+        font-size: 1.28rem;
+        line-height: 1.25;
+    }
+
+    .statLabel {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .servicesSection,
+    .faqSection,
+    .ctaSection,
+    .teamLunchSection {
+        padding: 60px 15px;
+    }
+
+    .servicesContainer {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .serviceGrid {
+        padding: 20px;
+        gap: 30px;
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .serviceTitle {
+        font-size: 1.8rem;
+    }
+
+    .servicesNav {
+        flex-direction: column;
+        /*align-items: center;*/
+    }
+
+    .navButtonContent {
+        /*width: 100%;*/
+        /*max-width: 300px;*/
+    }
+
+    .serviceImage {
+        border-radius: 16px;
+        margin: 0;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .image {
+        border-radius: 16px;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .teamLunchImage {
+        border-radius: 16px;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .imageWrapper {
+        border-radius: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .imageGlow {
+        border-radius: 16px;
+        display: block;
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ctaButtonPrimary,
+    .ctaButtonSecondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .contactInfo {
+        gap: 16px;
+    }
+
+    .teamLunchSection {
+        padding: 80px 20px;
+    }
+
+    .teamLunchWrapper {
+        gap: 40px;
+    }
+
+    .teamLunchMainTitle {
+        font-size: 2rem;
+    }
+
+    .teamLunchMainDescription {
+        font-size: 1.1rem;
+    }
+
+    .teamLunchFeatures {
+        gap: 12px;
+    }
+
+    .teamLunchFeatureCard {
+        padding: 16px;
+    }
+
+    .floatingStats {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 15px 60px;
+    }
+
+    .heroTitle {
+        font-size: 2rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .heroTitleHighlight {
+        min-width: 240px;
+        width: 240px;
+        text-align: center;
+        order: 2;
+    }
+
+    .typewriterText {
+        min-width: 240px;
+        width: 240px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .statItem {
+        padding: 16px;
+        gap: 14px;
+        width: 100%;
+        min-width: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .statIcon {
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .statContent {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .statValue {
+        font-size: 1.25rem;
+        line-height: 1.3;
+        margin-bottom: 6px;
+    }
+
+    .statLabel {
+        font-size: 0.84rem;
+        line-height: 1.4;
+    }
+
+    .servicesSection,
+    .faqSection,
+    .teamLunchSection {
+        padding: 40px 10px;
+    }
+
+    .ctaSection {
+        padding: 2rem;
+    }
+
+    .servicesContainer {
+        max-width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .serviceGrid {
+        padding: 20px;
+        gap: 0;
+    }
+
+    .serviceInfo {
+        margin-bottom: 20px;
+    }
+
+    .serviceTitle {
+        font-size: 1.8rem;
+    }
+
+    .serviceDescription {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .serviceImage {
+        border-radius: 16px;
+        margin: 0;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .image {
+        border-radius: 16px;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .teamLunchImage {
+        border-radius: 16px;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .imageWrapper {
+        border-radius: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .imageGlow {
+        border-radius: 16px;
+        display: block;
+    }
+
+    .serviceInfo {
+        margin-bottom: 20px;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1rem;
+    }
+
+    .faqQuestion {
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    .faqAnswer p {
+        padding: 0 20px 20px;
+        font-size: 0.9rem;
+    }
+
+    .ctaTitle {
+        font-size: 1.6rem;
+    }
+
+    .ctaText {
+        font-size: 1rem;
+    }
+
+    .ctaButtonPrimary,
+    .ctaButtonSecondary {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+
+    .teamLunchSection {
+        padding: 60px 15px;
+    }
+
+    .teamLunchWrapper {
+        gap: 30px;
+        text-align: center;
+    }
+
+    .teamLunchHero {
+        order: 2;
+        text-align: center;
+    }
+
+    .teamLunchImageSection {
+        order: 1;
+    }
+
+    .teamLunchMainTitle {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .teamLunchMainDescription {
+        font-size: 1rem;
+        text-align: center;
+        max-width: none;
+    }
+
+    .teamLunchFeatureCard {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .featureCardContent h4 {
+        font-size: 1rem;
+    }
+
+    .featureCardContent p {
+        font-size: 0.85rem;
+    }
+
+    .floatingStats {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        position: static;
+        margin-top: 16px;
+    }
+
+    .teamLunchCTA {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .teamLunchButton,
+    .teamLunchButtonSecondary {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .patternDot {
+        width: 100px !important;
+        height: 100px !important;
+    }
+}

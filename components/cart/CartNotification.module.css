@@ -1,0 +1,369 @@
+/* Elegant Georgian Restaurant Cart Notification */
+
+.notification {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #f9edda;
+    padding: 20px 30px;
+    border-radius: 16px;
+    /*border: 1px solid rgba(212, 175, 55, 0.3);*/
+
+    z-index: 9999999;
+    min-width: 360px;
+    /*max-width: 480px;*/
+    animation: dropIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+    transform-origin: top center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+/* Icon Wrapper with glow effect */
+.iconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.icon {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    animation: iconPop 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    animation-fill-mode: both;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.iconGlow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(212, 175, 55, 0.3) 0%,
+        transparent 70%
+    );
+    animation: pulse 2s infinite;
+    border-radius: 50%;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.message {
+    font-family: "Jost", serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    color: #f5f5f5;
+}
+
+/* Progress Bar */
+.progressBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(212, 175, 55, 0.1);
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #d4af37, #f4e4bc, #d4af37);
+    background-size: 200% 100%;
+    animation:
+        progressFill 3s linear forwards,
+        shimmer 1s linear infinite;
+    animation-fill-mode: both;
+    transform-origin: left;
+}
+
+/* Animations */
+@keyframes dropIn {
+    0% {
+        transform: translateX(-50%) translateY(-40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes updatePulse {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(0) scale(1.05);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+@keyframes iconPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+@keyframes progressFill {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px) scale(0.95);
+    }
+}
+
+.notification.fadeOut {
+    animation: fadeOut 0.3s ease-in forwards;
+}
+
+/* Success variant - Georgian wine theme */
+.notification.success {
+    /*background: linear-gradient(135deg, #1a1a1a 0%, #2d1f1f 100%);*/
+    background: #1a1a1a;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.notification.success .icon {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+}
+
+/* Error variant */
+.notification.error {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 100%);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.notification.error .icon {
+    color: #ff6b6b;
+    filter: drop-shadow(0 0 8px rgba(244, 67, 54, 0.5));
+}
+
+.notification.error .iconGlow {
+    background: radial-gradient(
+        circle,
+        rgba(244, 67, 54, 0.3) 0%,
+        transparent 70%
+    );
+}
+
+.notification.error .progressFill {
+    background: linear-gradient(90deg, #ff6b6b, #ff9999, #ff6b6b);
+}
+
+/* Warning variant */
+.notification.warning {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d1a 100%);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.notification.warning .icon {
+    color: #ffc107;
+    filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.5));
+}
+
+.notification.warning .iconGlow {
+    background: radial-gradient(
+        circle,
+        rgba(255, 193, 7, 0.3) 0%,
+        transparent 70%
+    );
+}
+
+.notification.warning .progressFill {
+    background: linear-gradient(90deg, #ffc107, #ffdb58, #ffc107);
+}
+
+/* Info variant */
+.notification.info {
+    background: linear-gradient(135deg, #1a1a1a 0%, #1a1a2d 100%);
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.notification.info .icon {
+    color: #64b5f6;
+    filter: drop-shadow(0 0 8px rgba(33, 150, 243, 0.5));
+}
+
+.notification.info .iconGlow {
+    background: radial-gradient(
+        circle,
+        rgba(33, 150, 243, 0.3) 0%,
+        transparent 70%
+    );
+}
+
+.notification.info .progressFill {
+    background: linear-gradient(90deg, #64b5f6, #90caf9, #64b5f6);
+}
+
+/* Hover effect with smooth transition */
+.notification {
+    transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notification:hover {
+    transform: translateX(-50%) translateY(-2px) scale(1.02);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.6),
+        0 0 50px rgba(212, 175, 55, 0.15),
+        inset 0 1px 0 rgba(212, 175, 55, 0.3);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .notification {
+        top: 80px;
+        min-width: 320px;
+        max-width: calc(100vw - 40px);
+        padding: 16px 24px;
+    }
+
+    .message {
+        font-size: 14px;
+    }
+
+    .iconWrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .notification {
+        top: 70px;
+        min-width: 280px;
+        max-width: calc(100vw - 30px);
+        padding: 14px 20px;
+        gap: 15px;
+    }
+
+    .message {
+        font-size: 13px;
+    }
+
+    .iconWrapper {
+        width: 36px;
+        height: 36px;
+    }
+
+    .icon {
+        font-size: 20px;
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .notification {
+        animation: simpleFadeIn 0.3s ease;
+    }
+
+    .icon {
+        animation: none;
+    }
+
+    .iconGlow {
+        animation: none;
+    }
+
+    .progressFill {
+        animation: progressFill 3s linear forwards;
+    }
+
+    @keyframes simpleFadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .notification {
+        background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+    }
+}

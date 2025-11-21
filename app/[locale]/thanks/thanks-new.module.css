@@ -1,0 +1,584 @@
+/* Premium Thanks Page Styles - NyghtSerif Design System */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Raleway:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap");
+
+/* Main Container */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12rem 2rem;
+    /*background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);*/
+    background-color: #1a1a1a;
+    position: relative;
+    opacity: 0;
+    border-radius: 12px;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Decorative background pattern */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(212, 175, 55, 0.03) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(212, 175, 55, 0.02) 0%,
+            transparent 50%
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Success Icon Container */
+.successIconWrapper {
+    position: relative;
+    margin-bottom: 2rem;
+    animation: fadeInScale 0.8s ease-out 0.2s both;
+}
+
+.successIcon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37 0%, #e6c757 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow:
+        0 20px 40px rgba(212, 175, 55, 0.2),
+        0 10px 20px rgba(212, 175, 55, 0.15);
+}
+
+.successIcon::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.3;
+    animation: pulse 2s infinite;
+}
+
+.successIcon svg {
+    color: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Success Message */
+.successMessage {
+    text-align: center;
+    margin-bottom: 3rem;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.title {
+    font-family: "Jost", serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 400;
+    color: #f5f5f5;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-family: "Jost", serif;
+    font-size: 1.65rem;
+    font-weight: 300;
+    color: #f5f5f5;
+    margin: 0 auto;
+    line-height: 1.6;
+    /*max-width: 900px;*/
+}
+
+.phoneLink {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.phoneLink:hover {
+    color: #c49f31;
+    border-bottom-color: #c49f31;
+}
+
+/* Order Summary Container */
+.orderSummaryContainer {
+    background: #f9edda;
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 800px;
+    width: 100%;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.08),
+        0 10px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+/* Order ID Badge */
+.orderId {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #d4af37 0%, #e6c757 100%);
+    color: #ffffff;
+    border-radius: 50px;
+    font-family: "Jost", serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+/* Summary Header */
+.summaryHeader {
+    font-family: "Jost", serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+    letter-spacing: 0.02em;
+}
+
+/* Item List */
+.itemList {
+    margin-bottom: 2rem;
+}
+
+.itemRow {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    /*background: #fafafa;*/
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.itemRow:hover {
+    background: #ffffff;
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateX(4px);
+}
+
+.itemImageProduct,
+.itemImageAlkohol {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.itemImageAlkohol {
+    object-fit: contain;
+    background: #f9f9f9;
+}
+
+.itemDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.itemName {
+    font-family: "Jost", serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: 0.02em;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.itemPrice {
+    font-family: "Jost", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+.itemQuantity {
+    font-family: "Jost", sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    display: flex;
+    font-weight: 300;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantityBadge {
+    background: #d4af37;
+    color: #ffffff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4.3rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* Sub Total */
+.subTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.subTotal span {
+    font-family: "Jost", serif;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+}
+
+.subTotal .amount {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #d4af37;
+}
+
+/* Summary Footer Items */
+.summaryFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: "Jost", serif;
+    font-size: 1rem;
+    color: #1a1a1a;
+}
+
+.summaryFooter:last-child {
+    border-bottom: none;
+    border-top: 2px solid #f0f0f0;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+}
+
+.finalTotal {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+.finalTotal .total {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.delivery {
+    color: #1a1a1a;
+    font-weight: 400;
+}
+
+.deliveryFree {
+    color: #4ade80;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Order Stats */
+.orderStats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+    padding: 2rem;
+    /*background: linear-gradient(135deg, #fafafa 0%, #f8f8f8 100%);*/
+    border-radius: 12px;
+}
+
+.statItem {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.statItem:hover {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.statNumber {
+    font-family: "Jost", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    display: block;
+    letter-spacing: -0.02em;
+}
+
+.statLabel {
+    font-family: "Jost", sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Action Buttons */
+.actionButtons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.contactButton,
+.emailButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-family: "Jost", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contactButton {
+    background: linear-gradient(135deg, #d4af37 0%, #e6c757 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+}
+
+.contactButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.35);
+}
+
+.emailButton {
+    background: transparent;
+    color: #1a1a1a;
+    border: 2px solid #d4af37;
+}
+
+.emailButton:hover {
+    background: linear-gradient(135deg, #d4af37 0%, #e6c757 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Loading State */
+.loadingSpinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 2rem;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(212, 175, 55, 0.1);
+    border-top-color: #d4af37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.spinnerText {
+    font-family: "Jost", serif;
+    font-size: 1.25rem;
+    color: rgba(26, 26, 26, 0.8);
+    letter-spacing: 0.02em;
+}
+
+/* Confetti Container */
+.confettiContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall 3s linear forwards;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.1;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .orderSummaryContainer {
+        padding: 2rem 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .itemRow {
+        padding: 1rem;
+    }
+
+    .itemImageProduct,
+    .itemImageAlkohol {
+        width: 60px;
+        height: 60px;
+    }
+
+    .orderStats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .actionButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contactButton,
+    .emailButton {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .orderSummaryContainer {
+        padding: 1.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .summaryHeader {
+        font-size: 1.5rem;
+    }
+
+    .itemRow {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .itemInfo {
+        align-items: center;
+        width: 100%;
+    }
+
+    .statNumber {
+        font-size: 1.5rem;
+    }
+}

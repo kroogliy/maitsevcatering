@@ -1,0 +1,646 @@
+/* Chefs Mastery Section - New Design */
+.chefs-mastery-section {
+    padding: 4rem 0 0 0;
+    position: relative;
+}
+
+.mastery-container {
+    margin: 0 auto;
+}
+
+/* Header Section with Number */
+.mastery-header {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(2rem, 4vw, 4rem);
+    max-width: 1600px;
+    margin-bottom: clamp(3rem, 6vw, 6rem);
+    padding: 0 clamp(1rem, 3vw, 3rem);
+}
+
+/* Number Typography */
+.mastery-number {
+    font-family: "Lighthaus", serif;
+    font-size: clamp(5rem, 12vw, 12rem);
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.1);
+    line-height: 0.8;
+    margin: 0;
+    flex-shrink: 0;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Content Group */
+.mastery-content-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Main Title */
+.mastery-main-title {
+    font-family: "NyghtSerif", serif;
+    font-size: clamp(3rem, 7vw, 8rem);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    font-weight: 300;
+    color: #1a1a1a;
+    margin: 0 0 clamp(1rem, 2vw, 2rem) 0;
+    line-height: 0.97;
+    letter-spacing: -0.02em;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+}
+
+.mastery-title-first {
+    display: block;
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+}
+
+.mastery-title-second {
+    display: block;
+    margin-top: -0.3rem;
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+}
+
+/* Chef Block */
+.chef-block {
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    position: relative;
+}
+
+/* Chef Image Side */
+.chef-image-side {
+    width: 50%;
+    min-height: 600px;
+    height: 100vh;
+    max-height: 1080px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+}
+
+.chef-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05) translateZ(0);
+    -webkit-transform: scale(1.05) translateZ(0);
+    transform-origin: center center;
+    display: block;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Chef Content Side */
+.chef-content-side {
+    width: 50%;
+    min-height: 600px;
+    background: #780116;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*padding: clamp(2rem, 3vw, 4rem);*/
+    box-sizing: border-box;
+    overflow: visible;
+    text-align: center;
+}
+
+/* Chef Name */
+.chef-name-large {
+    font-family: "Felidae", serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    text-transform: uppercase;
+    line-height: 0.9;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0 0 clamp(4rem, 8vw, 9rem) 0;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    max-width: 90%;
+}
+
+/* Chef Role */
+.chef-role-large {
+    font-family: "Felidae", serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 0.9;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: clamp(-2rem, -1vw, -1rem) 0 0 0;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    max-width: 90%;
+}
+
+/* Parallax White Card */
+.parallax-card {
+    width: 90%;
+    max-width: 600px;
+    min-width: 280px;
+    aspect-ratio: 5 / 6;
+    background: #f9edda;
+    padding: clamp(0.5rem, 1vw, 1rem);
+    z-index: 5;
+    will-change: transform;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin-top: clamp(-80px, -10vw, -100px);
+    margin-bottom: clamp(-80px, -10vw, -100px);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Card Content */
+.card-cooking-image {
+    width: 100%;
+    flex: 0 0 58%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-cooking-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(10%) contrast(1.1) brightness(1.05);
+    transition: transform 0.8s ease;
+}
+
+.card-skills-text {
+    font-family: "Forum", serif;
+    font-size: clamp(1rem, 1.8vw, 1.8rem);
+    font-weight: 300;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin: 0;
+    padding: clamp(1rem, 2vw, 2rem);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(248, 248, 248, 0.3) 100%
+    );
+}
+
+/* Section Title Overlay */
+.section-title-overlay {
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    background: #f9edda;
+    padding: clamp(0.7rem, 1.5vw, 1rem) clamp(1.5rem, 2vw, 2rem);
+    border-radius: 26px;
+    white-space: nowrap;
+}
+
+.section-title-text {
+    font-family: "NyghtSerif", serif;
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    font-weight: 300;
+    color: #1a1a1a;
+    margin: 0;
+    text-align: center;
+}
+
+/* Performance optimizations */
+.chef-main-image,
+.parallax-card {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* ============================================ */
+/* Responsive Design - Ultra Wide (1600px+) */
+/* ============================================ */
+@media (min-width: 1600px) {
+    .chef-block {
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+
+    .chef-image-side {
+        max-width: 960px;
+    }
+
+    .chef-content-side {
+        max-width: 960px;
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Large Desktop (1400px-1600px) */
+/* ============================================ */
+
+/* ============================================ */
+/* Responsive Design - Desktop (1200px-1400px) */
+/* ============================================ */
+@media (max-width: 1400px) {
+    .chef-image-side,
+    .chef-content-side {
+        height: 90vh;
+        min-height: 580px;
+    }
+
+    .chef-name-large,
+    .chef-role-large {
+        font-size: clamp(2.2rem, 3.8vw, 5rem);
+    }
+
+    .parallax-card {
+        max-width: 420px;
+    }
+
+    .card-skills-text {
+        font-size: clamp(1rem, 1.6vw, 1.6rem);
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Large Tablet (992px-1200px) */
+/* ============================================ */
+@media (max-width: 1200px) {
+    .mastery-header {
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .mastery-number {
+        font-size: clamp(5rem, 10vw, 10rem);
+    }
+
+    .mastery-main-title {
+        font-size: clamp(2.5rem, 6vw, 6rem);
+    }
+
+    .chef-image-side,
+    .chef-content-side {
+        height: 70vh;
+        /*min-height: 550px;*/
+    }
+
+    .chef-name-large {
+        margin-bottom: clamp(3rem, 6vw, 7rem);
+    }
+
+    .parallax-card {
+        max-width: 400px;
+        margin-top: clamp(-40px, -8vw, -80px);
+        margin-bottom: clamp(-160px, -8vw, -80px);
+    }
+
+    .card-skills-text {
+        font-size: clamp(1.3rem, 1.5vw, 1.8rem);
+        padding: clamp(0.8rem, 1.5vw, 1.5rem);
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Medium Tablet (768px-992px) */
+/* ============================================ */
+@media (max-width: 992px) {
+    .chef-block {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .chef-image-side,
+    .chef-content-side {
+        width: 100%;
+        height: auto;
+    }
+
+    .chef-image-side {
+        height: 60vh;
+        min-height: 400px;
+        max-height: 600px;
+    }
+
+    .chef-content-side {
+        min-height: 500px;
+        padding: clamp(3rem, 4vw, 4rem) clamp(2rem, 3vw, 3rem);
+    }
+
+    .chef-name-large,
+    .chef-role-large {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        max-width: 100%;
+    }
+
+    .chef-name-large {
+        margin-bottom: clamp(4rem, 6vw, 6rem);
+    }
+
+    .parallax-card {
+        max-width: 450px;
+        width: 85%;
+        margin-top: clamp(-20px, -6vw, -60px);
+        margin-bottom: clamp(-60px, -8vw, -80px);
+    }
+
+    .card-skills-text {
+        font-size: clamp(1.3rem, 1.6vw, 1.6rem);
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Small Tablet (600px-768px) */
+/* ============================================ */
+@media (max-width: 768px) {
+    .mastery-container {
+        padding: 0 1rem;
+    }
+
+    .mastery-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        align-items: center;
+    }
+
+    .mastery-number {
+        font-size: clamp(4rem, 12vw, 8rem);
+        order: 1;
+    }
+
+    .mastery-content-group {
+        order: 2;
+        text-align: center;
+        width: 100%;
+        align-items: center;
+    }
+
+    .mastery-main-title {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+    }
+
+    .chef-image-side {
+        height: 50vh;
+        min-height: 350px;
+        max-height: 500px;
+    }
+
+    .chef-content-side {
+        min-height: 450px;
+        padding: 3rem 1.5rem;
+    }
+
+    .chef-name-large,
+    .chef-role-large {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .chef-name-large {
+        margin-bottom: clamp(3rem, 5vw, 5rem);
+    }
+
+    .parallax-card {
+        width: 90%;
+        max-width: 400px;
+        margin-top: -30px;
+        margin-bottom: -10px;
+    }
+
+    .card-cooking-image {
+        flex: 0 0 55%;
+    }
+
+    .card-skills-text {
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        line-height: 1.3;
+    }
+
+    .section-title-overlay {
+        top: -1.5rem;
+    }
+
+    .section-title-text {
+        font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Large Mobile (480px-600px) */
+/* ============================================ */
+@media (max-width: 600px) {
+    .chef-image-side {
+        height: 45vh;
+        min-height: 300px;
+        max-height: 450px;
+    }
+
+    .chef-content-side {
+        min-height: 420px;
+        padding: 2.5rem 1.2rem;
+    }
+
+    .chef-name-large,
+    .chef-role-large {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+
+    .parallax-card {
+        width: 92%;
+        max-width: 380px;
+    }
+
+    .card-skills-text {
+        font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+        padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Small Mobile (320px-480px) */
+/* ============================================ */
+@media (max-width: 480px) {
+    .chefs-mastery-section {
+        padding: 2rem 0 0 0;
+    }
+
+    .mastery-container {
+        padding: 0 0.5rem;
+    }
+
+    .mastery-header {
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .mastery-number {
+        font-size: clamp(3.5rem, 15vw, 6rem);
+    }
+
+    .mastery-main-title {
+        font-size: clamp(2rem, 10vw, 4rem);
+        margin-bottom: 1rem;
+    }
+
+    .section-title-overlay {
+        top: -1rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .chef-block {
+        margin-bottom: 2rem;
+    }
+
+    .chef-image-side {
+        height: 40vh;
+        min-height: 280px;
+        /*max-height: 400px;*/
+    }
+
+    .chef-content-side {
+        min-height: 400px;
+        padding: 2rem 1rem;
+    }
+
+    .chef-name-large,
+    .chef-role-large {
+        font-size: clamp(1.6rem, 8vw, 2.3rem);
+    }
+
+    .chef-name-large {
+        margin-bottom: clamp(2rem, 5vw, 4rem);
+    }
+
+    .parallax-card {
+        width: 95%;
+        max-width: 350px;
+        margin-top: -30px;
+        margin-bottom: 0;
+    }
+
+    .card-cooking-image {
+        flex: 0 0 50%;
+    }
+
+    .card-skills-text {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        line-height: 1.35;
+        padding: clamp(0.7rem, 1.5vw, 1rem);
+    }
+
+    .section-title-text {
+        font-size: clamp(0.85rem, 2vw, 1.1rem);
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Extra Small Mobile (<320px) */
+/* ============================================ */
+@media (max-width: 320px) {
+    .mastery-number {
+        font-size: 3rem;
+    }
+
+    .mastery-main-title {
+        font-size: 1.8rem;
+    }
+
+    .chef-name-large,
+    .chef-role-large {
+        font-size: 1.5rem;
+    }
+
+    .parallax-card {
+        width: 98%;
+    }
+
+    .card-skills-text {
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================ */
+/* Accessibility */
+/* ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .chef-main-image,
+    .parallax-card {
+        transition: none;
+        will-change: auto;
+    }
+}
+
+/* ============================================ */
+/* Landscape orientation adjustments */
+/* ============================================ */
+@media (max-width: 992px) and (orientation: landscape) {
+    .chef-image-side {
+        height: 80vh;
+        min-height: 300px;
+    }
+
+    .chef-content-side {
+        min-height: 80vh;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .chef-image-side {
+        height: 90vh;
+        min-height: 280px;
+    }
+
+    .chef-content-side {
+        min-height: 70vh;
+        padding: 2rem 1.5rem;
+    }
+
+    .chef-name-large {
+        margin-bottom: 2.5rem;
+    }
+
+    .parallax-card {
+        margin-top: -20px;
+        margin-bottom: -40px;
+    }
+}

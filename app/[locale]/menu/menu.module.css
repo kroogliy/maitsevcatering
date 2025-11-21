@@ -1,0 +1,1535 @@
+/* Premium × Luxury × Minimalism Menu Design */
+/* Premium Luxury Minimalist Menu Styles - Matching actual structure */
+
+/* ===== TYPOGRAPHY & FONT IMPORTS ===== */
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=ranade@300,400,500,600,700&display=swap");
+
+/* ===== MAIN WRAPPER ===== */
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    /* background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%); */
+    overflow-x: hidden;
+}
+
+/* ===== HERO SECTION - NEW DESIGN ===== */
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.heroVideoContainer {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heroVideo {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(1.15);
+    will-change: transform;
+    filter: brightness(0.7);
+    will-change: transform, opacity, filter;
+}
+
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 2;
+}
+
+.heroContentWrapper {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    perspective: 1000px;
+    z-index: 101;
+    position: relative;
+}
+
+.heroTitle {
+    font-family: "Forum", serif;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 1.5rem 0;
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+}
+
+.heroTitleLine1 {
+    display: block;
+    font-size: 4rem;
+    color: #ffffff !important;
+    margin-bottom: 0.5rem;
+    z-index: 9999 !important;
+    position: relative !important;
+    overflow: visible;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    line-height: 1.2;
+}
+
+.greetingContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    min-height: 5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.greetingText {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* Simple gradient text effect */
+    background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 50%, #ffffff 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 3s linear infinite;
+}
+
+/* Clean mask reveal - no extra styles needed */
+
+.heroTitleLine2 {
+    font-family: "NyghtSerif", serif;
+    display: block;
+    font-size: 6rem;
+    color: #d4af37;
+    text-transform: uppercase;
+    line-height: 1;
+    /*margin-top: 0.5rem;*/
+}
+
+.heroSubtitle {
+    font-family: "Jost", sans-serif;
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.3;
+    /*max-width: 1200px;*/
+    /*margin: 0 1rem 0 0;*/
+    margin: 0 0 5rem 0;
+}
+
+.heroButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: rgba(30, 30, 30, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Jost", serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /*backdrop-filter: blur(15px);*/
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4.3rem;
+}
+
+.heroButton:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+    color: #d4af37;
+    transform: translateY(-2px);
+    background: rgba(212, 175, 55, 0.05);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+}
+
+.heroButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.heroButton:hover::before {
+    left: 100%;
+}
+
+.heroButtonArrow {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.heroButton:hover .heroButtonArrow {
+    transform: translateY(2px);
+    opacity: 1;
+    color: #d4af37;
+}
+
+/* Menu Container */
+.menuContainer {
+    padding: 4rem 0 2rem;
+    /*background: linear-gradient(135deg, #fafafa 0%, #f8f8f8 100%);*/
+    position: relative;
+    font-family: "NyghtSerif", serif;
+}
+
+.menuWrapper {
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.menuHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.menuSectionTitle {
+    font-family: "NyghtSerif", serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+}
+
+.menuSectionSubtitle {
+    /*font-family: "Montserrat", sans-serif;*/
+    font-family: "NyghtSerif", serif;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-weight: 300;
+    color: #1a1a1a;
+    text-transform: uppercase;
+
+    margin: 0;
+    /*max-width: 600px;*/
+    margin: 0 auto;
+}
+
+/* Products Section */
+.productsSection {
+    /*background: #ffffff;*/
+    padding: 1rem 0;
+    min-height: 60vh;
+}
+
+.productsWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.navigationDivider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    margin: 3rem 0;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    /*max-width: 800px;*/
+    padding: 0 2rem;
+}
+
+/* Commented out duplicate .heroTitle that was making text transparent
+.heroTitle {
+    font-family: "NyghtSerif", sans-serif;
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    font-weight: 200;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    margin: 0 0 1.5rem 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.2s ease-out 0.5s forwards;
+}
+*/
+
+/* Commented out duplicate .heroSubtitle
+.heroSubtitle {
+    font-family: "NyghtSerif", sans-serif;
+    font-size: clamp(2.1rem, 2.5vw, 2.5rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 3rem 0;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out 1s forwards;
+}
+*/
+
+/* ===== CSS ANIMATIONS ===== */
+
+/* Simple shimmer effect for gradient text */
+@keyframes shimmerText {
+    0% {
+        background-position: -200% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Убрали videoFadeIn keyframes - используем GSAP анимации */
+
+.fadeInUp {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.delay1 {
+    animation-delay: 1s;
+}
+
+.noAnimation .heroTitle,
+.noAnimation .heroSubtitle,
+.noAnimation .video {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scrollIndicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scrollIndicator:hover {
+    transform: translateX(-50%) translateY(-8px);
+}
+
+.scrollIndicatorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.scrollDots {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.scrollDot {
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: dotPulse 2.5s infinite ease-in-out;
+}
+
+.scrollDot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.scrollDot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.scrollLine {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 100%);
+    border-radius: 1px;
+}
+
+@keyframes dotPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.8);
+        opacity: 1;
+    }
+}
+
+/* ===== CATEGORY NAVIGATION STYLES ===== */
+.navigationContainer {
+    /* background: #ffffff; */
+    /*background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);*/
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* ===== MAIN CATEGORIES BUTTONS ===== */
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem auto 0;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.mainButton {
+    font-family: "Jost", serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    border-radius: 4.3rem;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    /*border-radius: 0;*/
+    min-width: 150px;
+    text-align: center;
+}
+
+.mainButton:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+    transform: translateY(-5);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+.mainButton.active {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #ffffff;
+    transform: translateY(0);
+}
+
+.virtualSubButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem auto 0;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .virtualSubButtonContainer {
+        flex-wrap: wrap;
+    }
+
+    .virtualSubButton {
+        flex: 1;
+    }
+}
+
+.virtualSubButton {
+    font-family: "Jost", serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 1.5rem;
+    margin: 0;
+    color: #1a1a1a;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.virtualSubButton::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #d4af37 15%, #d4af37 85%, transparent 100%);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.virtualSubButton:hover {
+    color: #000;
+    border-bottom-color: transparent;
+    transform: translateY(-5);
+}
+
+.virtualSubButton:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.virtualSubButton.active {
+    color: #d4af37;
+    border-bottom-color: transparent;
+    background: rgba(212, 175, 55, 0.02);
+    transform: translateY(0);
+    /*border-radius: 6px;*/
+}
+
+.virtualSubButton.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ===== SUBCATEGORIES CONTAINER - FULL WIDTH ===== */
+.subButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2.5rem 2rem;
+    margin: 2rem 0;
+    position: relative;
+    flex-wrap: wrap;
+    /*background: rgba(248, 248, 248, 0.6);*/
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.subButton {
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.5em;
+    margin: 0;
+    color: #1a1a1a;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.subButton::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #d4af37 15%, #d4af37 85%, transparent 100%);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subButton:hover {
+    color: #000;
+    border-bottom-color: transparent;
+    transform: translateY(-5);
+}
+
+.subButton:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.subButton:hover {
+    color: #333;
+    border-bottom-color: transparent;
+}
+
+.subButton.active {
+    color: #d4af37;
+    border-bottom-color: transparent;
+    background: rgba(212, 175, 55, 0.02);
+}
+
+.subButton.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ===== NAVIGATION DIVIDER ===== */
+.navigationDivider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
+    margin: 48px auto 40px;
+    position: relative;
+}
+
+.navigationDivider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    background: #000000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ===== SEARCH SECTION (отдельно от фильтров) ===== */
+.searchSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 40px;
+    padding: 0 40px;
+}
+
+.searchContainer {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+/* ===== FILTER ROW (только кнопки сортировки) ===== */
+/* ===== SEARCH SECTION (отдельно) ===== */
+.searchSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 30px;
+    padding: 0 40px;
+}
+
+.searchContainer {
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+}
+
+.searchCardWrapper {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    width: 100%;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.searchCardWrapper:focus-within {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.loupe {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #666;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    height: 100%;
+    padding: 0 12px 0 28px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #000000 !important;
+    background: #ffffff !important;
+    border: none !important;
+    outline: none !important;
+    font-family: "Montserrat", serif;
+    box-sizing: border-box;
+    border-radius: 20px;
+    -webkit-text-fill-color: #000000 !important;
+    -webkit-appearance: none !important;
+}
+
+.searchInput::placeholder {
+    color: #999 !important;
+    font-weight: 300 !important;
+    opacity: 1 !important;
+}
+
+/* ===== FILTER ROW (только кнопки) ===== */
+.filterRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    /*width: 100%;*/
+    max-width: 800px;
+    margin: 3rem auto 4rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+    overflow: visible;
+    /*background: rgba(250, 250, 250, 0.8);*/
+    border-radius: 4.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /*z-index: 9999;*/
+    position: relative;
+    isolation: isolate;
+}
+
+/* ===== SORT CONTROLS ===== */
+.sortButtonContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: visible;
+    flex-shrink: 0;
+    z-index: 10000;
+}
+
+.sortButtonContainer:hover {
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+.sortButton {
+    background: transparent;
+    color: #000;
+    padding: 12px 20px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    border-radius: 50px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.2px;
+}
+
+.sortButton:hover {
+    color: #1a1a1a;
+}
+
+.arrowIcon {
+    transition: transform 0.3s ease;
+}
+
+.sortButtonContainer:hover .arrowIcon {
+    transform: translateY(1px);
+}
+
+.sortMenu {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+    width: 200px !important;
+    z-index: 99999999999 !important;
+    overflow: visible !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) translateZ(1000px) !important;
+    pointer-events: auto !important;
+}
+
+@keyframes menuFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sortMenuItem {
+    background: transparent;
+    padding: 16px 20px;
+    text-align: left;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-family: "NyghtSerif", serif;
+    font-weight: 300;
+    color: #1a1a1a;
+    letter-spacing: 0.2px;
+}
+
+.sortMenuItem:hover {
+    background: rgba(0, 0, 0, 0.03);
+    color: #1a1a1a;
+    font-weight: 400;
+}
+
+/* ===== LOADING CONTAINER ===== */
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #1a1a1a;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== PRODUCT STYLES (для ProductList) ===== */
+.productContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    /* background: rgba(250, 250, 250, 0.5); */
+}
+
+.productCard {
+    background: #f5f5f5;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /*box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);*/
+    cursor: pointer;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.productCard:hover {
+    /*transform: translateY(8);*/
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: rgba(26, 26, 26, 0.15);
+}
+
+.productCard.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== IMAGE CONTAINER ===== */
+.imageContainer {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.imageContainer::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05));
+    pointer-events: none;
+}
+
+.productImageDrinks {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.productImageMenu {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ===== PRODUCT OVERLAY ===== */
+.productOverlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: none;
+    color: #333;
+    /* width: 100%; */
+    text-align: center;
+    flex-grow: 1;
+    gap: 0.75rem;
+    cursor: default;
+    min-height: 250px;
+}
+
+.overlayTitle {
+    font-family: "Jost", serif;
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin: 0;
+    cursor: pointer;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+}
+
+.overlayDescription {
+    font-family: "Jost", serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    /*font-weight: 300;*/
+    margin: 0;
+    flex-grow: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    text-align: center;
+    min-height: 3rem;
+    line-height: 1.4;
+    color: #1a1a1a;
+    letter-spacing: 0.01em;
+}
+
+.overlayDegree {
+    font-family: "Jost", serif;
+    font-weight: 300;
+    font-size: 1rem;
+    margin: 0;
+    min-height: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+.overlayAllergens {
+    font-family: "Jost", serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    margin: 0;
+    min-height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    color: #999;
+}
+
+.overlayPrice {
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    /*font-weight: 600;*/
+    margin: 0.5rem 0;
+    min-height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+.orderButton {
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    /*font-weight: 500;*/
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    width: 100%;
+    margin-top: auto;
+}
+
+.orderButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 26, 26, 0.2);
+}
+
+/* ===== CART CONTROLS ===== */
+.buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    /* width: 100%; */
+}
+
+.controls {
+    display: flex;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: 6px 8px;
+    color: #1a1a1a;
+    min-width: 70px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.controls:hover {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.controls span {
+    font-family: "Jost", serif;
+    font-weight: 400;
+    /*font-weight: 500;*/
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    margin: 0 4px;
+}
+
+.controls svg {
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+    width: 20px;
+    height: 20px;
+}
+
+.controls:hover svg {
+    color: #1a1a1a;
+}
+
+.control-button {
+    background: transparent;
+    border: none;
+    padding: 4px;
+    margin: 0 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    color: #666;
+}
+
+.control-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+    transform: scale(1.1);
+}
+
+.control-button:active {
+    transform: scale(0.95);
+}
+
+.control-button svg {
+    width: 26px;
+    height: 26px;
+}
+
+/* ===== NO PRODUCTS MESSAGE ===== */
+.noProductsMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "NyghtSerif", serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #666;
+    margin: 4rem 0;
+    grid-column: span 4;
+    height: 50vh;
+    letter-spacing: 0.05em;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 40px 20px;
+    transition: opacity 0.3s ease;
+}
+
+.paginationButton {
+    font-family: "NyghtSerif", serif;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #1a1a1a;
+    /*background: rgba(255, 255, 255, 0.9);*/
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+
+.paginationButton:hover:not(:disabled) {
+    background: #d4af37;
+    border-color: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 26, 26, 0.15);
+}
+
+.paginationButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.paginationButton.active {
+    background: #d4af37;
+    color: #ffffff;
+    /*border-color: #fff;*/
+}
+
+.paginationEllipsis {
+    color: #999;
+    font-family: "Ranade", sans-serif;
+    padding: 0 8px;
+}
+
+.paginationHidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.active {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .heroTitle {
+        margin: 0 0 1rem 0;
+    }
+
+    .heroTitleLine1 {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+
+    .greetingContainer {
+        min-height: 3.5rem;
+    }
+
+    .heroTitleLine2 {
+        font-size: 4.5rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .heroContent {
+        padding: 0 2rem;
+    }
+
+    .heroButton {
+        font-size: 1.2rem;
+        padding: 0.9rem 1.8rem;
+    }
+
+    .filterRow {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 20px;
+    }
+
+    .searchContainer {
+        max-width: 100%;
+    }
+
+    .buttonContainer {
+        margin: 40px auto 0;
+        /* padding: 0 20px; */
+        flex-wrap: wrap;
+        gap: 8px;
+        border-radius: 12px;
+    }
+
+    .mainButton {
+        padding: 16px 10px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .buttonContainer {
+        flex-direction: row;
+        border-radius: 0;
+        gap: 1rem;
+    }
+
+    .mainButton {
+        /*padding: 0.3rem;*/
+        font-size: 1.1rem;
+        /*width: 100%;*/
+        /*padding: 0.5rem;*/
+        text-align: center;
+        /*border-radius: 0;*/
+    }
+
+    .mainButton:first-child {
+        /*border-radius: 12px 12px 0 0;*/
+    }
+
+    .mainButton:last-child {
+        /*border-radius: 0 0 12px 12px;*/
+    }
+
+    .subButtonContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 15px;
+        /*margin-left: calc(-50vw + 50%);*/
+        /*width: 100vw;*/
+    }
+
+    .virtualSubButton,
+    .subButton {
+        min-width: 120px;
+        flex: 0 0 auto;
+        text-align: center;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    .filterRow {
+        /*padding: 0 15px;*/
+        border: none;
+    }
+
+    .productContainer {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroTitleLine1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+
+    .greetingContainer {
+        min-height: 2.5rem;
+    }
+
+    .greetingText {
+        font-size: 0.8em;
+    }
+
+    .heroTitleLine2 {
+        line-height: 0.9;
+    }
+
+    .heroContent {
+        padding: 0 1.5rem;
+    }
+
+    .heroButton {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.6rem;
+        gap: 0.4rem;
+    }
+
+    .heroButtonArrow {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroTitle {
+        margin: 0 0 0.8rem 0;
+    }
+
+    .heroTitleLine1 {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 0.3rem;
+    }
+
+    .greetingContainer {
+        min-height: 2rem;
+    }
+
+    .heroContent {
+        padding: 0 1rem;
+    }
+
+    .heroButton {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.4rem;
+        gap: 0.3rem;
+        width: 100%;
+        justify-content: center;
+        letter-spacing: 0.05em;
+    }
+
+    .heroButtonArrow {
+        font-size: 0.7rem;
+    }
+
+    .buttonContainer {
+        /*padding: 0 15px;*/
+    }
+
+    .subButtonContainer {
+        padding: 12px 15px;
+        /*margin-left: calc(-50vw + 50%);*/
+        width: 100vw;
+    }
+}
+
+@media (max-width: 360px) {
+    .heroTitle {
+        margin: 0 0 0.6rem 0;
+    }
+
+    .heroTitleLine1 {
+        font-size: 1.3rem;
+        line-height: 1.1;
+        margin-bottom: 0.2rem;
+    }
+
+    .greetingContainer {
+        min-height: 1.8rem;
+    }
+
+    .greetingText {
+        font-size: 0.7em;
+    }
+
+    .heroTitleLine2 {
+        font-size: 1.8rem;
+        margin-top: 0.2rem;
+    }
+
+    .heroSubtitle {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+
+    .heroButton {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+        gap: 0.2rem;
+        letter-spacing: 0.03em;
+    }
+
+    .heroButtonArrow {
+        font-size: 0.65rem;
+    }
+
+    .searchInput {
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .sortButton {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .productContainer {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .pagination {
+        margin: 20px 10px;
+        gap: 4px;
+    }
+
+    .paginationButton {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+@media (prefers-color-scheme: dark) {
+    .wrapper {
+        /* background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); */
+    }
+
+    .subButton.active {
+        /*background: #000;*/
+        /*color: #fff;*/
+    }
+
+    .searchCardWrapper {
+        /* background: rgba(26, 26, 26, 0.9); */
+        /* border-color: rgba(255, 255, 255, 0.1); */
+    }
+
+    .searchInput {
+        color: #ffffff;
+    }
+
+    .searchInput::placeholder {
+        color: #333;
+    }
+}
+
+/* ===== SMOOTH ANIMATIONS ===== */
+.wrapper * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus and selection styles moved to globals.css */

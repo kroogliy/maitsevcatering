@@ -1,0 +1,146 @@
+/* NyghtSerif Font Family - All Variants */
+
+/* Light */
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Regular */
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-RegularItalic.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Dark (Extra Bold) */
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-Dark.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NyghtSerif";
+    src: url("/fonts/Nyght Serif/NyghtSerif-DarkItalic.woff2") format("woff2");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* CSS Custom Properties for easy usage */
+:root {
+    --font-nyghtserif: "NyghtSerif", serif;
+}
+
+/* Utility classes for quick application */
+.font-nyghtserif {
+    font-family: var(--font-nyghtserif);
+}
+
+.font-nyghtserif-light {
+    font-family: var(--font-nyghtserif);
+    font-weight: 300;
+}
+
+.font-nyghtserif-regular {
+    font-family: var(--font-nyghtserif);
+    font-weight: 400;
+}
+
+.font-nyghtserif-medium {
+    font-family: var(--font-nyghtserif);
+    font-weight: 500;
+}
+
+.font-nyghtserif-bold {
+    font-family: var(--font-nyghtserif);
+    font-weight: 700;
+}
+
+.font-nyghtserif-dark {
+    font-family: var(--font-nyghtserif);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Viaoda";
+    src: url("/fonts/Viaoda.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Felidae";
+    src: url("/fonts/Felidae.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lighthaus";
+    src: url("/fonts/Lighthaus.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

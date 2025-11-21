@@ -1,0 +1,1060 @@
+/* Premium Minimalist Modal Styles */
+
+/* Font imports */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Raleway:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap");
+
+/* Блокируем скролл фона - перенесено в globals.css */
+
+/* Modal Overlay - полноэкранный скроллируемый оверлей */
+.modal-overlay {
+    position: fixed !important;
+    top: -0.2rem !important;
+    left: -0.2rem !important;
+    right: -0.2rem !important;
+    bottom: -0.2rem !important;
+    width: calc(100vw + 0.4rem) !important;
+    height: calc(100vh + 0.4rem) !important;
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    z-index: 999999999 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    overscroll-behavior-y: contain !important;
+    overscroll-behavior-x: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* Контейнер для центрирования контента */
+.modal-scroll-container {
+    width: 100% !important;
+    min-height: calc(100vh - 40px) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+    padding-top: 20px !important;
+    overscroll-behavior: none !important;
+}
+
+/* Special container for empty cart - center vertically */
+.modal-scroll-container:has(.empty-cart-modal) {
+    align-items: center !important;
+    padding-top: 0 !important;
+}
+
+/* Modal Content */
+.modal-content {
+    background: #ffffff !important;
+    /*border-radius: 16px !important;*/
+    padding: 0 !important;
+    margin: 0 auto 20px auto !important;
+    width: 100% !important;
+    z-index: 999999999 !important;
+    position: relative !important;
+    max-width: 1600px;
+    min-height: auto !important;
+    max-height: none !important;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.12),
+        0 10px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    overscroll-behavior: contain !important;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    z-index: 10;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+}
+
+/* Container Info */
+.container-info {
+    display: flex;
+    min-height: auto;
+}
+
+/* Left Column - Products */
+.left-column {
+    flex: 1;
+    background: #fafafa;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    min-height: auto;
+}
+
+/* Cart Header */
+.cart-header {
+    padding: 32px 32px 24px 32px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-header h2 {
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.contact-header-icon {
+    color: #000;
+    font-size: 20px;
+}
+
+/* Product Item */
+.product-item {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.product-item:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.08);
+}
+
+/* Product Images */
+.item-imageProduct,
+.item-imageAlkohol {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.item-imageAlkohol {
+    object-fit: contain;
+    background: #f9f9f9;
+}
+
+/* Product Info */
+.product-info {
+    flex: 1;
+    font-family: "Jost", serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.control-button {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    color: #666;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.control-button:hover {
+    background: #d4af37;
+    color: #fff;
+    border-color: #d4af37;
+    transform: scale(1.1);
+}
+
+.quantity-display {
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #1a1a1a;
+    min-width: 15px;
+    text-align: center;
+}
+
+/* Product Price */
+.product-price {
+    font-family: "Jost", serif;
+    display: flex;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    margin-left: auto;
+    letter-spacing: 0.01em;
+}
+
+/* Delete Button */
+.delete-items-button {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.delete-items-button:hover {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+@media (max-width: 768px) {
+    .product-info {
+        font-size: 0.85rem;
+    }
+
+    .controls {
+        gap: 0;
+    }
+
+    .control-button {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+
+    .quantity-display {
+        font-size: 14px;
+    }
+}
+
+/* Right Column - Contact Info */
+.right-column {
+    flex: 1;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    min-height: auto;
+}
+
+/* Contact Info */
+.contact-info {
+    flex: 1;
+    padding: 30px;
+}
+
+.contact-header {
+    margin-bottom: 30px;
+}
+
+.contact-header h2 {
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+/* Checkbox Container */
+.checkbox-container {
+    margin-bottom: 30px;
+}
+
+/* Radio Labels */
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #1a1a1a;
+    position: relative;
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom {
+    border-color: #000;
+    background: #000;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+/* Form Container */
+.form-container {
+    display: grid;
+    /*grid-template-columns: 1fr 1fr;*/
+    /*gap: 1px;*/
+    /*margin-bottom: 20px;*/
+}
+
+.form-container-single {
+    margin-bottom: 20px;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+    z-index: 2;
+}
+
+/* Input Field */
+.input-field {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    font-family: "Jost", serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.input-field::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: "Jost", serif;
+}
+
+/* Phone Input - Preserved Styles */
+.PhoneInputCountry {
+    margin-right: 8px;
+}
+
+.PhoneInputCountrySelectArrow {
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid rgba(0, 0, 0, 0.4);
+    margin-left: 4px;
+}
+
+/* Стили для PhoneInput */
+.form-container :global(.PhoneInput) {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    box-sizing: border-box;
+}
+
+.form-container :global(.PhoneInput:hover) {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.form-container :global(.PhoneInput:focus-within) {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* PhoneInputInput */
+.form-container :global(.PhoneInputInput) {
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #000;
+    width: 100%;
+    position: relative;
+    font-family: "Jost", serif;
+}
+
+.form-container :global(.PhoneInputInput::placeholder) {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: "Jost", serif;
+}
+
+/* Flag Number Styles */
+.form-container :global(.PhoneInputCountryIcon) {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 15px;
+    border-radius: 0;
+}
+
+.form-container :global(.PhoneInputCountryIcon--border) {
+    box-shadow:
+        0 0 0 var(--PhoneInputCountryFlag-borderWidth)
+            var(--PhoneInputCountryFlag-borderColor),
+        inset 0 0 0 var(--PhoneInputCountryFlag-borderWidth)
+            var(--PhoneInputCountryFlag-borderColor);
+}
+
+.form-container :global(.PhoneInputCountryIconImg) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 30px;
+}
+
+/* Error Styles */
+.form-container :global(.PhoneInputError) {
+    color: red;
+    font-size: 1.075rem;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.input-field.error {
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Country Field */
+.form-container :global(.PhoneInputCountrySelect) {
+    width: 0;
+    opacity: 0;
+}
+
+/* Textarea */
+.textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    font-family:
+        "Satoshi",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    font-size: 16px;
+    color: #000;
+    background: #ffffff;
+    resize: vertical;
+    min-height: 80px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.textarea::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-family:
+        "Satoshi",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+}
+
+/* Delivery Options */
+.delivery-options {
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #1a1a1a;
+}
+
+.section-icon {
+    color: #999;
+    font-size: 16px;
+}
+
+/* Delivery Select */
+.delivery-select {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    font-family: "Jost", serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delivery-select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* Date Time Fields */
+.date-time-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* Checkbox Privacy */
+.checkbox-privacy {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 30px;
+    font-family: "Jost", serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.6;
+}
+
+.checkbox-privacy input[type="checkbox"] {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: #000;
+}
+
+.checkbox-privacy a {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.checkbox-privacy a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* Summary Footer */
+.sum-info {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-top: 1px solid rgba(30, 30, 30, 0.15);
+}
+
+.summary-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-family: "Jost", serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: 0.01em;
+}
+
+.summary-footer .total {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+}
+
+/* Submit Button */
+.submit-button {
+    /*width: 100%;*/
+    padding: 1rem 2rem;
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 4.3rem;
+    margin: 0 auto;
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    /*margin-top: 24px;*/
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #c49f31 0%, #d4af37 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.35);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* Error Messages */
+.error-message {
+    color: #dc2626;
+    font-family: "Jost", serif;
+    font-size: 14px;
+    margin-top: 8px;
+    display: block;
+}
+
+.input-field.error {
+    border-color: #dc2626;
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 20px;
+    color: green;
+}
+
+.success-message p {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+/* Empty Cart Wrapper - Centers content */
+.empty-cart-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    width: 100%;
+}
+
+/* Empty Cart Message */
+.empty-cart-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    color: #000;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Center empty cart modal */
+.modal-content.empty-cart-modal {
+    max-width: 700px !important;
+    margin: auto !important;
+    min-height: auto !important;
+}
+
+.empty-cart-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.1) 0%,
+        rgba(212, 175, 55, 0.05) 100%
+    );
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37;
+    font-size: 40px;
+}
+
+.empty-cart-title {
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+    letter-spacing: 0.02em;
+}
+
+.empty-cart-subtitle {
+    font-family: "Jost", serif;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Menu Button */
+.menu-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 1rem 2rem;
+    background: #d4af37;
+    color: #fff;
+    border-radius: 4.3rem;
+    border: none;
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-button:hover {
+    /*background: #1a1a1a;*/
+    transform: translateY(-5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.menu-button:hover .button-icon {
+    transform: translateX(4px);
+}
+
+/* Delete Confirmation */
+.delete-confirmation {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    border-radius: 0;
+    width: 100%;
+}
+
+.delete-message {
+    font-family: "Jost", serif;
+    font-size: 14px;
+    color: #1a1a1a;
+    flex: 1;
+}
+
+.countdown-circle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.countdown-circle svg {
+    transform: rotate(-90deg);
+}
+
+.countdown-circle circle {
+    transition: stroke-dashoffset 0.3s linear;
+}
+
+.countdown-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-family: "Jost", serif;
+}
+
+.cancel-button {
+    padding: 8px 16px;
+    background: #e3c352;
+    color: #fff;
+    border: none;
+    border-radius: 4.3rem;
+    font-family: "Jost", serif;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+    transform: translateY(-5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container-info {
+        flex-direction: column;
+    }
+
+    .left-column,
+    .right-column {
+        max-width: 100%;
+        flex: none;
+    }
+
+    .left-column {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+
+    .date-time-fields {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 10px !important;
+    }
+
+    .modal-scroll-container {
+        min-height: calc(100vh - 20px) !important;
+        padding-top: 10px !important;
+    }
+
+    .modal-content {
+        margin: 0 auto 10px auto !important;
+        border-radius: 8px !important;
+    }
+
+    .container-info {
+        flex-direction: column;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+        max-width: none;
+    }
+
+    .cart-header,
+    .contact-info,
+    .sum-info {
+        padding: 20px;
+    }
+
+    .product-item {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .item-imageProduct,
+    .item-imageAlkohol {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 5px !important;
+    }
+
+    .modal-scroll-container {
+        min-height: calc(100vh - 10px) !important;
+        padding-top: 5px !important;
+    }
+
+    .modal-content {
+        margin: 0 auto 5px auto !important;
+        border-radius: 4px !important;
+    }
+
+    .cart-header h2,
+    .contact-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .product-item {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .item-imageProduct,
+    .item-imageAlkohol {
+        width: 50px;
+        height: 50px;
+    }
+
+    .product-info {
+        gap: 8px;
+    }
+
+    .controls {
+        gap: 0;
+    }
+
+    .control-button {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .quantity-display {
+        font-size: 14px;
+        min-width: 30px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+
+    .form-container {
+        grid-template-columns: 1fr;
+        /*gap: 15px;*/
+    }
+
+    .input-field,
+    .textarea,
+    .delivery-select {
+        font-size: 14px;
+        /*padding: 12px 15px;*/
+        padding: 12px 40px;
+    }
+
+    .submit-button {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+
+/* Animation Classes */
+.closing {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+}
+
+/* Loading States */
+.submit-button:disabled {
+    background: rgba(0, 0, 0, 0.3);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Focus States */
+.input-field:focus,
+.textarea:focus,
+.delivery-select:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover States */
+.product-item:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.control-button:hover {
+    background: #d4af37;
+    /*color: #1a1a1a;*/
+    /*border-color: #fff;*/
+}
+
+.delete-items-button:hover {
+    color: #000;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Scrollbar */
+/* Scrollbar Styles for Contact Info */
+.contact-info::-webkit-scrollbar {
+    width: 8px;
+}
+
+.contact-info::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.contact-info::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.contact-info::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}

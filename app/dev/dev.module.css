@@ -1,0 +1,460 @@
+/* Developer Page Styles */
+
+.devContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 40px 20px;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #303030 0%, #555555 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.controls {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #495057;
+}
+
+.setting label {
+    font-weight: 500;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background: white;
+    color: #495057;
+    font-size: 0.9rem;
+    min-width: 150px;
+    cursor: pointer;
+}
+
+.select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.setting input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.setting input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.primaryButton {
+    background: linear-gradient(135deg, #303030 0%, #555555 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(48, 48, 48, 0.3);
+}
+
+.primaryButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(48, 48, 48, 0.4);
+}
+
+.primaryButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.secondaryButton {
+    background: #f8f9fa;
+    color: #495057;
+    border: 2px solid #dee2e6;
+}
+
+.secondaryButton:hover:not(:disabled) {
+    background: #e9ecef;
+    border-color: #adb5bd;
+    transform: translateY(-1px);
+}
+
+.secondaryButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #495057;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #28a745;
+    animation: pulse 2s infinite;
+}
+
+.info {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.infoCard {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.infoCard h3 {
+    margin: 0 0 16px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+.infoCard ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.infoCard li {
+    margin-bottom: 8px;
+}
+
+.infoCard code {
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "SF Mono", Monaco, Consolas, monospace;
+    font-size: 0.9em;
+    color: #d63384;
+    border: 1px solid #e9ecef;
+}
+
+.quickTips {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tip {
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #303030;
+}
+
+.tip strong {
+    display: block;
+    color: #212529;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.tip p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border-radius: 12px;
+    border: 1px solid #ffeaa7;
+}
+
+.footer p {
+    margin: 0;
+    color: #856404;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .devContainer {
+        padding: 20px 16px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .controls {
+        padding: 20px;
+    }
+
+    .settings {
+        padding: 16px;
+    }
+
+    .setting {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .setting label {
+        min-width: auto;
+    }
+
+    .select {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .infoCard {
+        padding: 20px;
+    }
+
+    .quickTips {
+        gap: 12px;
+    }
+
+    .tip {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .controls {
+        padding: 16px;
+    }
+
+    .infoCard {
+        padding: 16px;
+    }
+
+    .footer {
+        padding: 16px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .devContainer {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    }
+
+    .header h1 {
+        color: #ffffff;
+        background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .header p {
+        color: #adb5bd;
+    }
+
+    .controls,
+    .infoCard {
+        background: #2a2a2a;
+        border: 1px solid #404040;
+    }
+
+    .infoCard h3 {
+        color: #ffffff;
+    }
+
+    .infoCard ul,
+    .infoCard li {
+        color: #adb5bd;
+    }
+
+    .infoCard code {
+        background: #404040;
+        color: #ff6b9d;
+        border: 1px solid #555555;
+    }
+
+    .tip {
+        background: #404040;
+        border-left-color: #ffffff;
+    }
+
+    .tip strong {
+        color: #ffffff;
+    }
+
+    .tip p {
+        color: #adb5bd;
+    }
+
+    .settings {
+        background: #404040;
+        border: 1px solid #555555;
+    }
+
+    .setting {
+        color: #adb5bd;
+    }
+
+    .select {
+        background: #2a2a2a;
+        border: 1px solid #555555;
+        color: #adb5bd;
+    }
+
+    .status {
+        background: #404040;
+        border: 1px solid #555555;
+        color: #adb5bd;
+    }
+
+    .secondaryButton {
+        background: #404040;
+        color: #adb5bd;
+        border: 2px solid #555555;
+    }
+
+    .secondaryButton:hover:not(:disabled) {
+        background: #555555;
+        border-color: #666666;
+    }
+
+    .footer {
+        background: linear-gradient(135deg, #2a2a2a 0%, #404040 100%);
+        border: 1px solid #555555;
+    }
+
+    .footer p {
+        color: #adb5bd;
+    }
+}

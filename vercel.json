@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max-old-space-size=3008"
+    }
+  },
+  "functions": {
+    "pages/api/**/*.js": {
+      "maxDuration": 10,
+      "memory": 1024
+    }
+  }
+}

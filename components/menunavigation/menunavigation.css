@@ -1,0 +1,129 @@
+.menu-navigation {
+  display: none; /* Hide completely since main navigation is in header */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-nav-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 15px 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.menu-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
+  min-width: 120px;
+}
+
+.menu-nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-3px);
+}
+
+.menu-nav-item.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffd700;
+  transform: translateX(-5px);
+}
+
+.menu-nav-icon {
+  font-size: 16px;
+  min-width: 20px;
+}
+
+.menu-nav-text {
+  font-family: "Exo 2", sans-serif;
+  white-space: nowrap;
+}
+
+/* Mobile styles */
+@media (max-width: 1024px) {
+  .menu-navigation {
+    display: none; /* Keep hidden on mobile too */
+  }
+
+  .menu-nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 10px 15px;
+    gap: 5px;
+  }
+
+  .menu-nav-item {
+    flex-direction: column;
+    min-width: auto;
+    padding: 8px 6px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .menu-nav-text {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .menu-nav-icon {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-nav-item {
+    padding: 6px 4px;
+  }
+
+  .menu-nav-text {
+    font-size: 9px;
+  }
+
+  .menu-nav-icon {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-navigation {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .menu-nav-container {
+    padding: 8px 10px;
+  }
+
+  .menu-nav-item {
+    padding: 4px 2px;
+  }
+
+  .menu-nav-text {
+    font-size: 8px;
+  }
+
+  .menu-nav-icon {
+    font-size: 10px;
+  }
+}

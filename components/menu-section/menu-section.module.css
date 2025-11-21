@@ -1,0 +1,403 @@
+/* Menu Section - Grid Layout */
+.section {
+    width: 100%;
+    /*background: #ffffff;*/
+    position: relative;
+}
+
+/* Text Section */
+.textSection {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem 0 2rem;
+}
+
+/* Content */
+.content {
+    text-align: center;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Text */
+.text {
+    font-family: "Forum", serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 300;
+    color: #1a1a1a;
+    padding: 2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Button */
+.button {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.button:hover {
+    background: #2b1b1b;
+    transform: translateY(-2px);
+}
+
+/* Mosaic Section */
+.mosaicSection {
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*height: 100vh;*/
+    /*overflow: hidden;*/
+}
+
+/* Mosaic Wrapper */
+.mosaicWrapper {
+    position: relative;
+    width: 100%;
+    /*height: 100%;*/
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Grid Container */
+.gridContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 70vh;
+    width: 100%;
+    /*max-width: 1600px;*/
+    padding: 0 4rem;
+    position: relative;
+}
+
+/* Grid Columns */
+.col1,
+.col4 {
+    height: 100%;
+    width: 600px;
+}
+
+.col2,
+.col3 {
+    height: 100%;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Grid Images */
+.gridImage {
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.gridImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+/* Specific sizes */
+.col1.gridImage,
+.col4.gridImage {
+    height: 100%;
+}
+
+.top60 {
+    height: 60%;
+}
+
+.bottom40 {
+    height: 40%;
+}
+
+.top40 {
+    height: 40%;
+}
+
+.bottom60 {
+    height: 60%;
+}
+
+/* Center Image Wrapper */
+.centerImageWrapper {
+    position: relative;
+    width: 35vw;
+    height: 100%;
+}
+
+/* Center Image */
+.centerImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* Remove transform - will be handled by GSAP */
+    /* transform: translate(-50%, -50%); */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    z-index: 30;
+    will-change: width, height, left, top, transform, border-radius;
+    transform-origin: center center;
+    transition: none;
+}
+
+.centerImage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.5)
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.centerImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay Content */
+.overlayContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    z-index: 200;
+    opacity: 0;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.overlayTitle {
+    font-family: "Noto Sans Georgian", serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 300;
+    color: #f5f5f5;
+    margin: 0 0 2rem 0;
+}
+
+.overlayButtons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    z-index: 999999;
+    align-items: center;
+}
+
+.overlayButton {
+    background: #f9edda;
+    color: #1a1a1a;
+    border: 2px solid #f9edda;
+    padding: 1rem 2.5rem;
+    font-family: "Jost", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    z-index: 999999;
+}
+
+@media (max-width: 768px) {
+    .overlayButtons {
+        gap: 1rem;
+    }
+
+    .overlayButton {
+        font-size: clamp(0.8rem, 2vw, 1.3rem);
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+.overlayButton:hover {
+    background: #f9edda;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 237, 218, 0.3);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+    .mosaicSection {
+        height: auto;
+    }
+
+    .gridContainer {
+        flex-direction: column;
+        gap: 1rem;
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    /* Full width images */
+    .col1,
+    .col4 {
+        width: 100%;
+        height: 150px;
+    }
+
+    /* Specific sizes */
+    .col1.gridImage,
+    .col4.gridImage {
+        height: 50vw;
+    }
+
+    /* Two column layouts */
+    .col2,
+    .col3 {
+        width: 100%;
+        flex-direction: row;
+        display: flex;
+        gap: 1rem;
+        height: 360px;
+    }
+
+    .top60 {
+        width: 60%;
+        height: 100%;
+    }
+
+    .bottom40 {
+        width: 40%;
+        height: 100%;
+    }
+
+    .top40 {
+        width: 40%;
+        height: 100%;
+    }
+
+    .bottom60 {
+        width: 60%;
+        height: 100%;
+    }
+
+    .centerImageWrapper {
+        width: 100%;
+        height: 375px;
+    }
+
+    .centerImage {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .textSection {
+        min-height: 40vh;
+        padding: 3rem 1.5rem;
+    }
+
+    .text {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+
+    .mosaicSection {
+        height: auto;
+        padding: 2rem 0;
+    }
+
+    .gridContainer {
+        padding: 1rem;
+    }
+
+    .col1,
+    .col4 {
+        height: 120px;
+    }
+
+    .col2,
+    .col3 {
+        height: 300px;
+    }
+
+    .centerImageWrapper {
+        height: 300px;
+    }
+
+    .overlayTitle {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 1rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .textSection {
+        padding: 2rem 1rem;
+    }
+
+    .text {
+        font-size: clamp(1.3rem, 7vw, 2rem);
+        line-height: 1.1;
+        text-align: left;
+    }
+
+    .button {
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .col2,
+    .col3 {
+        height: 240px;
+    }
+
+    .centerImageWrapper {
+        height: 270px;
+    }
+
+    .centerImage {
+        border-radius: 10px;
+    }
+}

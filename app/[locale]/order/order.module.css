@@ -1,0 +1,731 @@
+/* Premium Minimalist Order Page - Black & White Design */
+
+/* Main Container */
+.container {
+    min-height: 100vh;
+    background: transparent;
+    color: #000000;
+    font-family:
+        "Satoshi",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    padding: 120px 20px 60px;
+    text-align: center;
+    position: relative;
+}
+
+.heroContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-family:
+        "Ranade",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.heroTitleHighlight {
+    font-weight: 400;
+    position: relative;
+    min-width: 250px;
+    display: inline-block;
+    text-align: left;
+}
+
+.typewriterText {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+    min-width: 250px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.cursor {
+    display: inline-block;
+    color: #fff;
+    font-weight: 100;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.heroSubtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Stats Grid */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.statItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+.statIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    color: #000000;
+    background: #f8f8f8;
+    padding: 12px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.statContent {
+    flex: 1;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: #666666;
+    font-weight: 500;
+}
+
+/* Steps Section */
+.stepsSection {
+    padding: 80px 20px;
+    background: #f8f8f8;
+}
+
+.stepsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Steps Navigation */
+.stepsNav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navButtonContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 30px;
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    min-width: 160px;
+}
+
+.navButton:hover .navButtonContent {
+}
+
+.navButtonActive .navButtonContent {
+    border-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.navButtonNumber {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: inherit;
+}
+
+.navButtonText {
+    font-family:
+        "Satoshi",
+        "SF Pro Display",
+        -apple-system,
+        sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.navButtonLine {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: #000000;
+    transition: width 0.3s ease;
+}
+
+.navButtonActive .navButtonLine {
+    width: 50%;
+}
+
+/* Step Content */
+.stepContent {
+    position: relative;
+    min-height: auto;
+    height: auto;
+}
+
+.stepCard {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    display: none;
+}
+
+.stepCardActive {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    display: block;
+}
+
+.stepHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+}
+
+.stepIconContainer {
+    width: 80px;
+    height: 80px;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stepIcon {
+    width: 32px;
+    height: 32px;
+}
+
+.stepInfo {
+    flex: 1;
+}
+
+.stepTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+}
+
+.stepDescription {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+.stepTime {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #000000;
+    font-weight: 500;
+}
+
+.stepTimeIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.stepBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Features */
+.stepFeatures {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 30px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.featuresTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 24px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.featuresGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+}
+
+.featureIcon {
+    width: 20px;
+    height: 20px;
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.featureText {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.remark {
+    color: #333333;
+    font-size: 0.85rem;
+}
+
+/* Benefits */
+.stepBenefits {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 30px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.benefitsTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 24px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.benefitsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.benefitItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+}
+
+.benefitIcon {
+    width: 20px;
+    height: 20px;
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.benefitItem span {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.5;
+}
+
+/* CTA Section */
+.ctaSection {
+    padding: 80px 20px;
+    /*background: #000000;*/
+    color: #ffffff;
+}
+
+.ctaContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ctaContent {
+    position: relative;
+}
+
+.ctaIcon {
+    width: 64px;
+    height: 64px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+}
+
+.ctaTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.ctaText {
+    font-size: 1.3rem;
+    color: #fff;
+    line-height: 1.6;
+    margin: 0 0 40px 0;
+}
+
+.ctaButtons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ctaButtonPrimary,
+.ctaButtonSecondary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.ctaButtonPrimary {
+    background: #ffffff;
+    color: #000000;
+}
+
+.ctaButtonPrimary:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.ctaButtonSecondary {
+    background: transparent;
+    color: #ffffff;
+}
+
+.ctaButtonSecondary:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.ctaButtonText {
+    font-size: 1rem;
+}
+
+.ctaButtonIcon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .stepContent {
+        min-height: auto;
+        height: auto;
+    }
+
+    .stepFeatures,
+    .stepBenefits {
+        height: 200px;
+    }
+
+    .stepBody {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .stepsNav {
+        /*flex-direction: column;*/
+        align-items: center;
+        gap: 15px;
+    }
+
+    .navButtonContent {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 873px) {
+    .stepsNav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .heroTitleHighlight {
+        min-width: 200px;
+        text-align: center;
+    }
+
+    .typewriterText {
+        min-width: 200px;
+    }
+
+    .heroSubtitle {
+        font-size: 1.1rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .statItem {
+        padding: 20px;
+    }
+
+    .stepsSection {
+        padding: 60px 20px;
+    }
+
+    .stepContent {
+        min-height: auto;
+        height: auto;
+    }
+
+    .stepFeatures,
+    .stepBenefits {
+        height: 200px;
+    }
+
+    .stepHeader {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .stepIconContainer {
+        align-self: center;
+    }
+
+    .stepTitle {
+        font-size: 1.6rem;
+    }
+
+    .ctaSection {
+        padding: 60px 20px;
+    }
+
+    .ctaTitle {
+        font-size: 2rem;
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ctaButtonPrimary,
+    .ctaButtonSecondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroTitle {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .heroTitleHighlight {
+        min-width: 180px;
+        text-align: center;
+    }
+
+    .typewriterText {
+        min-width: 180px;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .statItem {
+        padding: 16px;
+    }
+
+    .statIcon {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
+
+    .stepsSection {
+        padding: 40px 15px;
+    }
+
+    .stepContent {
+        min-height: auto;
+        height: auto;
+    }
+
+    .stepFeatures,
+    .stepBenefits {
+        height: 200px;
+        padding: 20px;
+    }
+
+    .stepHeader {
+        padding: 20px;
+    }
+
+    .stepIconContainer {
+        width: 60px;
+        height: 60px;
+    }
+
+    .stepIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .stepTitle {
+        font-size: 1.4rem;
+    }
+
+    .stepDescription {
+        font-size: 1rem;
+    }
+
+    .stepFeatures,
+    .stepBenefits {
+        padding: 20px;
+    }
+
+    .featuresTitle,
+    .benefitsTitle {
+        font-size: 1.1rem;
+    }
+
+    .ctaSection {
+        padding: 40px 15px;
+    }
+
+    .ctaTitle {
+        font-size: 1.6rem;
+    }
+
+    .ctaText {
+        font-size: 1rem;
+    }
+
+    .ctaButtonPrimary,
+    .ctaButtonSecondary {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+}

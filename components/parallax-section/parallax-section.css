@@ -1,0 +1,431 @@
+/* Parallax Section - Adaptive with full background coverage */
+.parallax-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    isolation: isolate; /* Create new stacking context */
+}
+
+/* Background wrapper for absolute positioning */
+.parallax-background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Image wrapper for parallax transform */
+.parallax-image-wrapper {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Parallax Background Image */
+.parallax-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Dark Overlay for text readability */
+.parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Georgia Map Content */
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    padding: clamp(3rem, 6vw, 8rem) clamp(1rem, 3vw, 2rem);
+    box-sizing: border-box;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Mobile-specific class */
+.parallax-section--mobile {
+    min-height: auto;
+}
+
+.parallax-section--mobile .parallax-background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+.parallax-section--mobile .parallax-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none !important;
+}
+
+.parallax-section--mobile .parallax-image {
+    background-attachment: scroll;
+}
+
+/* ============================================ */
+/* Responsive Design - Large Desktop (1400px+) */
+/* ============================================ */
+@media (min-width: 1400px) {
+    .parallax-content {
+        max-width: 1400px;
+        padding: 8rem 2rem;
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Tablet (768px-1024px) */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .parallax-image {
+        background-attachment: scroll;
+    }
+
+    .parallax-image-wrapper {
+        top: 0;
+        height: 100%;
+    }
+
+    .parallax-content {
+        max-width: 900px;
+        padding: 5rem 2rem;
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Mobile (max-width: 768px) */
+/* ============================================ */
+@media (max-width: 768px) {
+    .parallax-section {
+        min-height: auto;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        background-color: #1a1a1a;
+    }
+
+    /* Make background fill the entire section */
+    .parallax-background-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        z-index: 0;
+    }
+
+    .parallax-image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none !important;
+    }
+
+    .parallax-image {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .parallax-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .parallax-content {
+        position: relative;
+        z-index: 2;
+        padding: 4rem 1.5rem;
+        max-width: 100%;
+    }
+}
+
+/* ============================================ */
+/* Responsive Design - Small Mobile (max-width: 430px) */
+/* ============================================ */
+@media (max-width: 430px) {
+    .parallax-section {
+        position: relative;
+        min-height: auto;
+        display: block;
+        overflow: hidden;
+        background-color: #1a1a1a;
+        isolation: isolate; /* Prevent z-index leaking */
+    }
+
+    /* Ensure background covers everything but stays within section */
+    .parallax-background-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .parallax-image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none !important;
+    }
+
+    .parallax-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        background-image: url("/images/parallax.jpg") !important;
+    }
+
+    .parallax-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .parallax-content {
+        position: relative;
+        z-index: 2;
+        padding: 3rem 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ============================================ */
+/* iPhone-specific fixes (Safari iOS) */
+/* ============================================ */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 430px) {
+        .parallax-section {
+            position: relative;
+            min-height: auto;
+            overflow: hidden;
+            contain: layout style paint; /* Contain everything within section */
+        }
+
+        .parallax-background-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .parallax-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            /* Force GPU acceleration */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+
+        .parallax-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+    }
+}
+
+/* ============================================ */
+/* Extra small mobile (max-width: 320px) */
+/* ============================================ */
+@media (max-width: 320px) {
+    .parallax-content {
+        padding: 2.5rem 0.75rem;
+    }
+
+    .parallax-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+    }
+}
+
+/* ============================================ */
+/* Safe area insets for modern phones */
+/* ============================================ */
+@media (max-width: 430px) {
+    .parallax-content {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-bottom: max(3rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* ============================================ */
+/* Landscape orientation adjustments */
+/* ============================================ */
+@media (orientation: landscape) and (max-height: 650px) {
+    .parallax-section {
+        min-height: 100vh;
+    }
+
+    .parallax-content {
+        padding: 3rem 2rem;
+        max-width: 900px;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .parallax-content {
+        padding: 2rem 1.5rem;
+        max-width: 800px;
+    }
+}
+
+/* ============================================ */
+/* Performance optimizations */
+/* ============================================ */
+.parallax-image-wrapper,
+.parallax-content {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* Disable parallax for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .parallax-image-wrapper,
+    .parallax-content {
+        transform: none !important;
+        will-change: auto;
+    }
+
+    .parallax-image {
+        background-attachment: scroll;
+    }
+}
+
+/* ============================================ */
+/* Print styles */
+/* ============================================ */
+@media print {
+    .parallax-section {
+        min-height: auto;
+        position: relative;
+    }
+
+    .parallax-background-wrapper {
+        display: none;
+    }
+
+    .parallax-content {
+        padding: 2rem;
+        max-width: 100%;
+    }
+}
+
+/* ============================================ */
+/* Fallback for background image on mobile */
+/* ============================================ */
+@media (max-width: 430px) {
+    .parallax-section {
+        /* Fallback background if image doesn't load */
+        background-image: url("/images/parallax.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+    }
+}
