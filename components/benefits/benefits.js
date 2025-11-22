@@ -16,7 +16,7 @@ export default function Benefits() {
         title: "Global Flavors, Crafted Daily",
         subtitle:
           "Georgian, Italian, Street Food, Sushi, Pizza, Desserts — made with fresh, locally sourced ingredients.",
-        image: "/images/catering/eventCatering.jpg",
+        image: "/images/catering/corporate.jpeg",
       },
     },
     {
@@ -40,13 +40,13 @@ export default function Benefits() {
         title: "Fully Tailored Experience",
         subtitle:
           "Custom menus, flexible formats, curated to match your event’s style and atmosphere.",
-        image: "/images/catering/popupCatering.jpg",
+        image: "/images/catering/chefCatering.jpg",
       },
       back: {
         title: "Your Vision, Perfectly Executed",
         subtitle:
           "Corporate events, weddings, private parties — we adapt to any scale and concept.",
-        image: "/images/catering/corporateCatering.jpg",
+        image: "/images/catering/wedding.jpg",
       },
     },
     {
@@ -55,7 +55,7 @@ export default function Benefits() {
         title: "End-to-End Service",
         subtitle:
           "Professional chefs, sommeliers, bartenders, and event managers — we handle everything.",
-        image: "/images/catering/corporateCatering.jpg",
+        image: "/images/catering/sommelier.jpg",
       },
       back: {
         title: "Flawless Performance",

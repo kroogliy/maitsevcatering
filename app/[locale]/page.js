@@ -35,6 +35,9 @@ import MenuSection from "../../components/menu-section/menu-section";
 import HomePageClient from "./HomePageClient";
 // import HomePageLoadingWrapper from "./HomePageLoadingWrapper";
 import Benefits from "../../components/benefits/benefits";
+import Contact from "../../components/contacts/contact";
+import FAQ from "../../components/faq/faq";
+
 export default async function Home({ params }) {
   const { locale } = await params;
 
@@ -465,9 +468,11 @@ export default async function Home({ params }) {
       <Intro />
       {/* <ParallaxSection />*/}
       <Benefits />
-      <MenuShowcase />
-      <ChefsMastery />
-      <MenuSection locale={locale} />
+      <Contact />
+      <FAQ />
+      {/* <MenuShowcase />*/}
+      {/* <ChefsMastery />*/}
+      {/* <MenuSection locale={locale} />*/}
     </div>
   );
 }
