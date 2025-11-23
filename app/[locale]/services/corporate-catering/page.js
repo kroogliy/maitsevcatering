@@ -12,7 +12,7 @@ export default function CorporateCatering() {
   const statsRef = useRef(null);
   const servicesRef = useRef(null);
   const processRef = useRef(null);
-  const [openFaq, setOpenFaq] = useState(null);
+  const [openFaq, setOpenFaq] = useState(-1);
   const [activeService, setActiveService] = useState(0);
 
   const services = [
@@ -91,10 +91,10 @@ export default function CorporateCatering() {
   ];
 
   const stats = [
-    { value: "500+", label: "Events Yearly" },
-    { value: "98%", label: "Satisfaction" },
-    { value: "15+", label: "Years Experience" },
-    { value: "2000", label: "Max Guests" },
+    { value: "6000+", label: "Drinks" },
+    { value: "7+", label: "World Cuisines" },
+    { value: "1", label: "Professional Team" },
+    { value: "2025", label: "Founded" },
   ];
 
   const processSteps = [
@@ -503,7 +503,7 @@ export default function CorporateCatering() {
               >
                 <button
                   className={styles.faqQuestion}
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
                 >
                   <span>{faq.q}</span>
                   <div className={styles.faqIcon}>

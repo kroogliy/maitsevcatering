@@ -1,0 +1,658 @@
+/* Page */
+.page {
+    width: 100%;
+    background: #ffffff;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    padding: 12rem 8vw 8rem;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+}
+
+.heroPattern {
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 50%
+        );
+    animation: patternFloat 20s ease-in-out infinite;
+}
+
+@keyframes patternFloat {
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(20px, -20px) scale(1.05);
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.heroLabel {
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2rem;
+}
+
+.heroTitle {
+    font-family: "Rubik", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.15;
+}
+
+.heroSubtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* Contact Methods */
+.methods {
+    padding: 0 8vw;
+    transform: translateY(-4rem);
+}
+
+.methodsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.methodCard {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.methodCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.methodCard:hover::before,
+.methodCardActive::before {
+    opacity: 1;
+}
+
+.methodCard:hover,
+.methodCardActive {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border-color: transparent;
+}
+
+.methodIcon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-radius: 12px;
+    color: #0a0a0a;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.methodCard:hover .methodIcon,
+.methodCardActive .methodIcon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.methodContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.methodTitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888888;
+    transition: color 0.4s ease;
+}
+
+.methodCard:hover .methodTitle,
+.methodCardActive .methodTitle {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.methodValue {
+    font-family: "Rubik", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    transition: color 0.4s ease;
+}
+
+.methodCard:hover .methodValue,
+.methodCardActive .methodValue {
+    color: #ffffff;
+}
+
+.methodDesc {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.85rem;
+    color: #666666;
+    transition: color 0.4s ease;
+}
+
+.methodCard:hover .methodDesc,
+.methodCardActive .methodDesc {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.methodArrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    opacity: 0;
+    transform: translate(-10px, 10px);
+    transition: all 0.4s ease;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.methodCard:hover .methodArrow,
+.methodCardActive .methodArrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Main Content */
+.main {
+    padding: 8rem 8vw;
+}
+
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Form Section */
+.formSection {
+    background: #fafafa;
+    border-radius: 20px;
+    padding: 3rem;
+}
+
+.formHeader {
+    margin-bottom: 3rem;
+}
+
+.formLabel {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #888888;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.formTitle {
+    font-family: "Rubik", sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 600;
+    color: #0a0a0a;
+    margin: 0 0 1rem 0;
+}
+
+.formSubtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333333;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.95rem;
+    color: #0a0a0a;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    border-color: #0a0a0a;
+    box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.05);
+}
+
+.formGroup select {
+    cursor: pointer;
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+}
+
+.submitBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-family: "Rubik", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0a0a0a;
+    border: none;
+    border-radius: 50px;
+    padding: 1.25rem 3rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 1rem;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.2);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.successMessage {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.successMessage svg {
+    color: #4caf50;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.successMessage strong {
+    font-family: "Rubik", sans-serif;
+    font-size: 1rem;
+    color: #2e7d32;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.successMessage p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    color: #558b2f;
+    margin: 0;
+}
+
+/* Info Sidebar */
+.infoSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.infoCard {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+}
+
+.infoCard h3 {
+    font-family: "Rubik", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin: 0 0 1.5rem 0;
+}
+
+.hoursList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hoursItem {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+}
+
+.hoursItem span:first-child {
+    color: #666666;
+}
+
+.hoursItem span:last-child {
+    font-weight: 500;
+    color: #0a0a0a;
+}
+
+.stepsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+}
+
+.stepNumber {
+    width: 32px;
+    height: 32px;
+    background: #0a0a0a;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.step strong {
+    font-family: "Rubik", sans-serif;
+    font-size: 0.95rem;
+    color: #0a0a0a;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.step p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.85rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.featuresList li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    color: #444444;
+}
+
+.featuresList svg {
+    color: #4caf50;
+    flex-shrink: 0;
+}
+
+/* Map */
+.map {
+    padding: 0;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 500px;
+    background: #f5f5f5;
+    position: relative;
+}
+
+.mapPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.mapPlaceholder svg {
+    color: #0a0a0a;
+    opacity: 0.3;
+}
+
+.mapPlaceholder h3 {
+    font-family: "Rubik", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin: 0;
+}
+
+.mapPlaceholder p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: #666666;
+    margin: 0;
+}
+
+.mapLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #0a0a0a;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.mapLink:hover {
+    background: #0a0a0a;
+    color: #ffffff;
+    border-color: #0a0a0a;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .mainGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .infoSidebar {
+        grid-row: 1;
+    }
+
+    .methodsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 8rem 1.5rem 6rem;
+    }
+
+    .methods {
+        padding: 0 1.5rem;
+    }
+
+    .methodsGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .main {
+        padding: 5rem 1.5rem;
+    }
+
+    .formSection {
+        padding: 2rem 1.5rem;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .submitBtn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .formHeader {
+        margin-bottom: 2rem;
+    }
+
+    .infoCard {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .patternFloat {
+        animation: none;
+    }
+
+    .spinner {
+        animation: none;
+    }
+}

@@ -708,7 +708,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -717,8 +717,8 @@
 
 .faqQuestion span {
     font-family: "Rubik", sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.3rem;
+    font-weight: 400;
     color: #0a0a0a;
 }
 
@@ -761,10 +761,15 @@
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.4s ease;
+    overflow: hidden;
 }
 
 .faqItemOpen .faqAnswer {
     grid-template-rows: 1fr;
+}
+
+.faqAnswer > div {
+    min-height: 0;
 }
 
 .faqAnswer p {
@@ -774,7 +779,16 @@
     color: #555555;
     line-height: 1.8;
     margin: 0;
-    padding: 0 2rem 1.5rem;
+    padding: 0 2rem 0; /* Убрали нижний паддинг */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease 0.1s;
+}
+
+.faqItemOpen .faqAnswer p {
+    padding: 0 2rem 1.5rem; /* Добавили нижний паддинг только когда открыто */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* CTA */
