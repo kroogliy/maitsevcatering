@@ -24,7 +24,7 @@ export default function SlideShow() {
       contentGroup,
       {
         opacity: 0,
-        y: 50,
+        // y: 50,
       },
       {
         opacity: 1,

@@ -17,7 +17,7 @@
     width: 100%;
     height: 50vh;
     object-fit: cover;
-    border-radius: 500px 500px 0 0;
+    border-radius: 200px 200px 0 0;
     z-index: 10;
     will-change: border-radius, width, height, bottom, left;
     /*box-shadow: 0 -20px 80px rgba(0, 0, 0, 0.15);*/
@@ -25,9 +25,10 @@
 
 /* Content Section - поверх всего */
 .slideshow-content {
-    position: absolute;
-    top: 0;
-    left: 0;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -64,6 +65,12 @@
     margin: 0;
     padding: 0 2rem;
     position: relative;
+}
+
+@media (max-width: 780px) {
+    .slideshow-title {
+        font-size: clamp(2.9rem, 5vw, 5rem);
+    }
 }
 
 .slideshow-title-text {
@@ -107,96 +114,4 @@
     background: #d62828;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .slideshow-title {
-        font-size: clamp(1.8rem, 4.5vw, 4rem);
-    }
-
-    .slideshow-video {
-        border-radius: 400px 400px 0 0;
-    }
-
-    .slideshow-button {
-        font-size: 1.1rem;
-        padding: 1.1rem 2.5rem;
-    }
-
-    .slideshow-title {
-        font-size: clamp(1.8rem, 4.5vw, 4rem);
-    }
-}
-
-@media (max-width: 768px) {
-    .slideshow-content {
-        padding-top: 8vh;
-    }
-
-    .slideshow-title {
-        padding: 0 1rem;
-    }
-
-    .slideshow-video {
-        border-radius: 300px 300px 0 0;
-    }
-
-    .slideshow-button {
-        font-size: 1rem;
-        padding: 1rem 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .slideshow-content {
-        padding-top: 6vh;
-    }
-
-    .slideshow-title {
-        padding: 0 0.5rem;
-    }
-
-    .slideshow-video {
-        border-radius: 200px 200px 0 0;
-    }
-
-    .slideshow-button {
-        font-size: 0.9rem;
-        padding: 0.9rem 1.8rem;
-    }
-}
-
-/* Performance Optimizations */
-.slideshow-video {
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-}
-
-.slideshow-title {
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    .slideshow-video,
-    .slideshow-title,
-    .slideshow-button {
-        transition: none !important;
-        animation: none !important;
-    }
-}
-
-/* Landscape orientation for mobile */
-@media (orientation: landscape) and (max-height: 650px) {
-    .slideshow-container {
-        height: 100vh;
-    }
-
-    .slideshow-content {
-        padding-top: 5vh;
-    }
 }

@@ -197,16 +197,16 @@ export default function Footer() {
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Email</span>
                 <a
-                  href="mailto:events@catering.ee"
+                  href="mailto:info@maitsevcatering.ee"
                   className={styles.contactValue}
                 >
-                  events@catering.ee
+                  info@maitsevcatering.ee
                 </a>
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Phone</span>
-                <a href="tel:+37255555555" className={styles.contactValue}>
-                  +372 5555 5555
+                <a href="tel:+3725023599" className={styles.contactValue}>
+                  +372 502 3599
                 </a>
               </div>
               <div className={styles.contactItem}>
@@ -214,7 +214,7 @@ export default function Footer() {
                 <span className={styles.contactValue}>
                   Tallinn, Estonia
                   <br />
-                  Mon-Fri, 9:00-18:00 EET
+                  Mon-Sun, 10:00-22:00
                 </span>
               </div>
             </div>

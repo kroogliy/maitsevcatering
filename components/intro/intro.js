@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Intro() {
   const containerRef = useRef(null);
+  const itemsRef = useRef([]);
   const params = useParams();
   const locale = params.locale || "en";
 
@@ -54,49 +55,60 @@ export default function Intro() {
   ];
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const items = itemsRef.current;
 
-    const items = container.querySelectorAll(`.${styles.serviceItem}`);
+    items.forEach((item, index) => {
+      if (!item) return;
 
-    items.forEach((item) => {
-      const curtainLeft = item.querySelector(`.${styles.curtainLeft}`);
-      const curtainRight = item.querySelector(`.${styles.curtainRight}`);
-      const content = item.querySelector(`.${styles.content}`);
+      const shape = item.querySelector(`.${styles.serviceShape}`);
+      const content = item.querySelector(`.${styles.serviceContent}`);
 
-      const tl = gsap.timeline({ paused: true });
-
-      // Шторки разъезжаются от центра
-      tl.to(curtainLeft, {
-        xPercent: -100,
-        duration: 2,
+      // Анимация расправления круга в квадрат + расширение 90vw → 100vw
+      gsap.to(shape, {
+        borderRadius: "12px",
+        width: "90vw",
+        x: 0,
         ease: "power3.inOut",
-      })
-        .to(
-          curtainRight,
-          {
-            xPercent: 100,
-            duration: 2,
-            ease: "power3.inOut",
-          },
-          0,
-        )
-        .to(
-          content,
-          {
-            opacity: 1,
-            duration: 1,
-            ease: "power3.inOut",
-          },
-          0.4,
-        );
-
-      ScrollTrigger.create({
-        trigger: item,
-        start: "top 75%",
-        onEnter: () => tl.play(),
-        once: true,
+        duration: 1.2,
+        scrollTrigger: {
+          trigger: item,
+          start: "top bottom",
+          end: "top 60%",
+          scrub: 1,
+        },
       });
+
+      // Анимация поднятия вверх
+      gsap.to(shape, {
+        y: -50,
+        ease: "power3.out",
+        duration: 1.2,
+        scrollTrigger: {
+          trigger: item,
+          start: "top bottom",
+          end: "top 30%",
+          scrub: 1,
+        },
+      });
+
+      // Анимация появления контента
+      const contentElements = content.querySelectorAll(`.${styles.fadeIn}`);
+      gsap.fromTo(
+        contentElements,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 60%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
     });
 
     return () => {
@@ -104,41 +116,52 @@ export default function Intro() {
     };
   }, []);
 
+  const addToRefs = (el) => {
+    if (el && !itemsRef.current.includes(el)) {
+      itemsRef.current.push(el);
+    }
+  };
+
   return (
     <section ref={containerRef} className={styles.container}>
       <div className={styles.servicesGrid}>
         {cateringServices.map((service) => (
-          <Link
-            key={service.id}
-            href={`/${locale}/services/${service.link}`}
-            className={styles.serviceItem}
-          >
-            {/* Background Image - под шторками */}
-            <div
-              className={styles.imageBackground}
-              style={{ backgroundImage: `url(${service.image})` }}
-            />
-            <div className={styles.imageOverlay} />
-
-            {/* Curtains - закрывают изображение изначально */}
-            <div className={styles.curtainLeft} />
-            <div className={styles.curtainRight} />
-
-            {/* Content - поверх всего */}
-            <div className={styles.content}>
-              <div className={styles.contentLeft}>
-                <span className={styles.serviceNumber}>0{service.id}</span>
-                <h3 className={styles.serviceTitle}>{service.title}</h3>
-                <HiExternalLink className={styles.serviceIcon} />
-              </div>
-
-              <div className={styles.contentRight}>
-                <p className={styles.serviceDescription}>
-                  {service.description}
-                </p>
-              </div>
+          <div key={service.id} ref={addToRefs} className={styles.serviceItem}>
+            <div className={styles.serviceShape}>
+              <div
+                className={styles.serviceImage}
+                style={{ backgroundImage: `url(${service.image})` }}
+              />
+              <div className={styles.serviceOverlay} />
             </div>
-          </Link>
+
+            <div className={styles.serviceContent}>
+              <Link
+                href={`/${locale}/services/${service.link}`}
+                className={styles.serviceLink}
+              >
+                <div className={styles.contentLeft}>
+                  <span className={`${styles.serviceNumber} ${styles.fadeIn}`}>
+                    0{service.id}
+                  </span>
+                  <h3 className={`${styles.serviceTitle} ${styles.fadeIn}`}>
+                    {service.title}
+                  </h3>
+                  <HiExternalLink
+                    className={`${styles.serviceIcon} ${styles.fadeIn}`}
+                  />
+                </div>
+
+                <div className={styles.contentRight}>
+                  <p
+                    className={`${styles.serviceDescription} ${styles.fadeIn}`}
+                  >
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
         ))}
       </div>
     </section>

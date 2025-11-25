@@ -14,7 +14,8 @@
     left: 0;
     right: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
+    /*min-height: 100vh;*/
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     border-radius: 500px 500px 0 0;
     z-index: 1;
@@ -50,6 +51,13 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .footerBrand {
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .logo {
@@ -241,6 +249,8 @@ a.contactValue:hover {
     padding: 0.875rem 1.5rem;
     outline: none;
     transition: all 0.3s ease;
+    /*max-width: 200px;*/
+    /*margin: 0 auto;*/
 }
 
 .newsletterInput::placeholder {
@@ -264,6 +274,7 @@ a.contactValue:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     flex-shrink: 0;
+    margin: 0 auto;
 }
 
 .newsletterButton svg {
@@ -487,9 +498,9 @@ a.contactValue:hover {
     }
 
     .newsletterButton {
-        width: 100%;
-        border-radius: 50px;
-        height: 48px;
+        /*width: 100%;*/
+        /*border-radius: 50px;*/
+        /*height: 48px;*/
     }
 
     .bottomLeft {

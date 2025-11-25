@@ -1,43 +1,44 @@
-/* Container - без фона, прозрачный */
+/* Container */
 .container {
     position: relative;
-    /*width: 100%;*/
-    padding: 3rem;
-}
-
-/* Section Title */
-.sectionTitle {
-    font-family: "Rubik", sans-serif;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    font-weight: 600;
-    color: #022310;
-    margin: 0 0 3rem 0;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    padding: 4rem 0;
+    background: transparent;
+    /*overflow: hidden;*/
 }
 
 /* Services Grid */
 .servicesGrid {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    max-width: 90vw;
-    margin: 0 auto;
+    margin: 0;
 }
 
 /* Service Item */
 .serviceItem {
     position: relative;
-    /*width: 100%;*/
-    height: 330px;
-    overflow: hidden;
-    border-radius: 12px;
-    text-decoration: none;
-    cursor: pointer;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.2rem 0;
 }
 
-/* Background Image - самый нижний слой */
-.imageBackground {
+/* Service Shape - изначально круглый 90vw по центру */
+.serviceShape {
+    position: absolute;
+    width: 70vw;
+    height: 100%;
+    max-height: 400px;
+    border-radius: 500px 500px 250px 250px;
+    overflow: hidden;
+    z-index: 1;
+    will-change: border-radius, width, transform;
+    /*left: 50%;*/
+    transform: translateX(-50%);
+}
+
+/* Service Image */
+.serviceImage {
     position: absolute;
     top: 0;
     left: 0;
@@ -46,72 +47,59 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1;
 }
 
-/* Dark overlay для читаемости текста */
-.imageOverlay {
+/* Service Overlay */
+.serviceOverlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.3) 50%,
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
         rgba(0, 0, 0, 0.7) 100%
     );
-    z-index: 2;
 }
 
-/* Curtains - зелёные шторки поверх изображения */
-.curtainLeft,
-.curtainRight {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: #022310;
-    z-index: 10;
-    will-change: transform;
-}
-
-.curtainLeft {
-    left: 0;
-    transform-origin: left center;
-}
-
-.curtainRight {
-    right: 0;
-    transform-origin: right center;
-}
-
-/* Content - поверх всего */
-.content {
+/* Service Content */
+.serviceContent {
     position: relative;
-    z-index: 15;
+    z-index: 2;
     /*width: 100%;*/
     /*height: 100%;*/
     display: flex;
     align-items: center;
-    justify-content: center;
-    /*justify-content: space-between;*/
-    padding: 2rem 3rem;
-    opacity: 1;
+    padding: 0 8vw;
+}
+
+.serviceLink {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Fade In Animation Class */
+.fadeIn {
+    opacity: 0;
 }
 
 /* Content Left */
 .contentLeft {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     flex: 1;
 }
 
 .serviceNumber {
     font-family: "Rubik", sans-serif;
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-size: 1.1rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.5);
     flex-shrink: 0;
@@ -119,7 +107,7 @@
 
 .serviceTitle {
     font-family: "Rubik", sans-serif;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 500;
     color: #ffffff;
     margin: 0;
@@ -129,7 +117,7 @@
 }
 
 .serviceIcon {
-    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    font-size: 2rem;
     color: rgba(255, 255, 255, 0.6);
     transition: all 0.3s ease;
 }
@@ -142,160 +130,108 @@
 
 .serviceDescription {
     font-family: "Montserrat", sans-serif;
-    font-size: clamp(1.1rem, 1.2vw, 1.3rem);
+    font-size: 1.2rem;
     font-weight: 300;
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
     line-height: 1.6;
-    /*max-width: 450px;*/
+    max-width: 500px;
     margin-left: auto;
 }
 
-/* Hover effect */
-.serviceItem::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(30, 30, 30, 0.3);
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    z-index: 3;
-    pointer-events: none;
+/* Hover Effects */
+.serviceLink:hover .serviceTitle {
+    color: rgba(255, 255, 255, 1);
 }
 
-.serviceItem:hover::after {
-    opacity: 0;
+.serviceLink:hover .serviceIcon {
+    transform: translateX(5px);
+    color: #ffffff;
+}
+
+.serviceLink:hover .serviceDescription {
+    color: #ffffff;
 }
 
 /* Responsive - Large Desktop */
 @media (max-width: 1400px) {
-    .container {
-        padding: 3rem 3rem 5rem;
-    }
-
-    .serviceItem {
-        height: 250px;
-    }
-
-    .content {
-        padding: 1.5rem 2.5rem;
+    .serviceContent {
+        padding: 0 6vw;
     }
 }
 
 /* Responsive - Desktop */
 @media (max-width: 1200px) {
-    .container {
-        padding: 2.5rem 2rem 4rem;
-    }
-
-    .sectionTitle {
-        margin-bottom: 2rem;
-    }
-
-    .servicesGrid {
-        gap: 1.25rem;
-    }
-
-    .serviceItem {
-        height: 220px;
-    }
-
-    .content {
-        padding: 1.5rem 2rem;
+    .serviceContent {
+        padding: 0 4vw;
     }
 
     .contentLeft {
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .serviceDescription {
-        max-width: 350px;
+        font-size: 1.1rem;
+        max-width: 400px;
     }
 }
 
 /* Responsive - Tablet */
 @media (max-width: 1024px) {
     .container {
-        padding: 2rem 1.5rem 3rem;
+        padding: 3rem 0;
     }
 
-    .sectionTitle {
-        font-size: clamp(1.3rem, 3vw, 1.8rem);
-        margin-bottom: 1.5rem;
-    }
-
-    .servicesGrid {
-        gap: 1rem;
-    }
-
-    .serviceItem {
-        height: 200px;
-    }
-
-    .content {
-        padding: 1.25rem 1.5rem;
+    .serviceContent {
+        padding: 0 3vw;
     }
 
     .contentLeft {
-        gap: 0.75rem;
+        gap: 1rem;
     }
 
     .serviceTitle {
-        font-size: clamp(1.1rem, 2vw, 1.5rem);
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
     }
 
     .serviceIcon {
-        font-size: clamp(1.4rem, 2vw, 1.8rem);
+        font-size: 1.6rem;
     }
 
     .serviceDescription {
-        font-size: clamp(0.8rem, 1.5vw, 0.95rem);
-        max-width: 280px;
+        font-size: 1rem;
+        max-width: 350px;
     }
 }
 
 /* Responsive - Mobile */
 @media (max-width: 768px) {
     .container {
-        padding: 2rem 1rem 2.5rem;
+        padding: 2rem 0;
     }
 
-    .sectionTitle {
-        font-size: 1.3rem;
-        margin-bottom: 1.25rem;
+    .serviceContent {
+        padding: 0 1rem;
     }
 
-    .servicesGrid {
-        gap: 0.875rem;
-    }
-
-    .serviceItem {
-        height: 180px;
-        border-radius: 10px;
-    }
-
-    .content {
+    .serviceLink {
         flex-direction: column;
         justify-content: center;
-        gap: 0.75rem;
-        padding: 1rem;
         text-align: center;
+        /*gap: 1rem;*/
     }
 
     .contentLeft {
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.5rem;
     }
 
     .serviceNumber {
-        font-size: 0.85rem;
+        font-size: 1.3rem;
     }
 
     .serviceTitle {
-        font-size: 1.1rem;
+        font-size: 2rem;
     }
 
     .serviceIcon {
@@ -307,73 +243,57 @@
     }
 
     .serviceDescription {
-        font-size: 0.85rem;
-        max-width: 100%;
-        margin: 0 auto;
+        font-size: 1.3rem;
+        /*max-width: 100%;*/
     }
 }
 
 /* Responsive - Mobile Small */
 @media (max-width: 480px) {
     .container {
-        padding: 1.5rem 0.75rem 2rem;
+        padding: 1.5rem 0;
     }
 
-    .sectionTitle {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
-
-    .servicesGrid {
-        gap: 0.75rem;
-    }
-
-    .serviceItem {
-        height: 160px;
-        border-radius: 8px;
-    }
-
-    .content {
-        padding: 0.75rem;
-        gap: 0.5rem;
-    }
-
-    .serviceNumber {
-        font-size: 0.75rem;
+    .serviceContent {
+        padding: 0 0.75rem;
     }
 
     .serviceTitle {
-        font-size: 1rem;
-    }
-
-    .serviceIcon {
-        font-size: 1.2rem;
+        font-size: 1.9rem;
     }
 
     .serviceDescription {
-        font-size: 0.75rem;
+        font-size: 1.2rem;
         line-height: 1.4;
     }
 }
 
 /* Performance */
-.curtainLeft,
-.curtainRight {
+.serviceShape {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform: translateZ(0);
 }
 
-.imageBackground {
+.serviceImage {
     backface-visibility: hidden;
     transform: translateZ(0);
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .curtainLeft,
-    .curtainRight,
-    .content {
+    .serviceShape {
+        transition: none !important;
+    }
+
+    .serviceItem {
+        transition: none !important;
+    }
+
+    .fadeIn,
+    .serviceTitle,
+    .serviceIcon,
+    .serviceDescription {
         transition: none !important;
     }
 }
