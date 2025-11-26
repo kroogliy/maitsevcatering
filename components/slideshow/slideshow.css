@@ -1,7 +1,7 @@
 /* Slideshow Container */
 .slideshow-container {
     position: relative;
-    width: 100%;
+    /*width: 100%;*/
     height: 100vh;
     background: #ffffff;
     margin: 0;
@@ -13,8 +13,8 @@
 .slideshow-video {
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 5vw;
+    width: 90vw;
     height: 50vh;
     object-fit: cover;
     border-radius: 200px 200px 0 0;

@@ -37,6 +37,7 @@ import HomePageClient from "./HomePageClient";
 import Benefits from "../../components/benefits/benefits";
 import Contact from "../../components/contacts/contact";
 import FAQ from "../../components/faq/faq";
+import VenuesSection from "../../components/venuesection/venuesection";
 
 export default async function Home({ params }) {
   const { locale } = await params;
@@ -468,6 +469,7 @@ export default async function Home({ params }) {
       <Intro />
       {/* <ParallaxSection />*/}
       <Benefits />
+      <VenuesSection />
       <Contact />
       <FAQ />
       {/* <MenuShowcase />*/}
