@@ -1,8 +1,32 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./benefits.module.css";
 
 export default function Benefits() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const benefits = [
     {
       id: 1,
@@ -39,7 +63,7 @@ export default function Benefits() {
       front: {
         title: "Fully Tailored Experience",
         subtitle:
-          "Custom menus, flexible formats, curated to match your event’s style and atmosphere.",
+          "Custom menus, flexible formats, curated to match your event's style and atmosphere.",
         image: "/images/catering/chefCatering.jpg",
       },
       back: {
@@ -67,49 +91,57 @@ export default function Benefits() {
   ];
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} ref={sectionRef}>
       <div className={styles.content}>
-        <div className={styles.header}>
+        <div
+          className={`${styles.header} ${isVisible ? styles.animateIn : ""}`}
+        >
           <h2 className={styles.sectionTitle}>Why Choose Us</h2>
           <p className={styles.sectionSubtitle}>
             Excellence in every detail, tailored to your vision
           </p>
         </div>
 
-        <div className={styles.bentoGrid}>
-          {benefits.map((benefit) => (
-            <div key={benefit.id} className={styles.bentoItem}>
+        <div className={styles.grid}>
+          {benefits.map((benefit, index) => (
+            <div
+              key={benefit.id}
+              className={`${styles.card} ${isVisible ? styles.animateIn : ""}`}
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
               <div className={styles.cardInner}>
                 {/* Front Side */}
-                <div className={styles.cardFace + " " + styles.cardFront}>
+                <div className={`${styles.cardFace} ${styles.cardFront}`}>
                   <div
-                    className={styles.bentoImage}
+                    className={styles.cardImage}
                     style={{ backgroundImage: `url(${benefit.front.image})` }}
                   />
-                  <div className={styles.bentoOverlay} />
-                  <div className={styles.bentoContent}>
-                    <span className={styles.bentoNumber}>0{benefit.id}</span>
-                    <h3 className={styles.bentoTitle}>{benefit.front.title}</h3>
-                    <p className={styles.bentoSubtitle}>
+                  <div className={styles.cardOverlay} />
+                  <div className={styles.cardContent}>
+                    <span className={styles.cardNumber}>0{benefit.id}</span>
+                    <h3 className={styles.cardTitle}>{benefit.front.title}</h3>
+                    <p className={styles.cardSubtitle}>
                       {benefit.front.subtitle}
                     </p>
                   </div>
+                  <div className={styles.cardGlow} />
                 </div>
 
                 {/* Back Side */}
-                <div className={styles.cardFace + " " + styles.cardBack}>
+                <div className={`${styles.cardFace} ${styles.cardBack}`}>
                   <div
-                    className={styles.bentoImage}
+                    className={styles.cardImage}
                     style={{ backgroundImage: `url(${benefit.back.image})` }}
                   />
-                  <div className={styles.bentoOverlayBack} />
-                  <div className={styles.bentoContent}>
-                    <span className={styles.bentoNumber}>0{benefit.id}</span>
-                    <h3 className={styles.bentoTitle}>{benefit.back.title}</h3>
-                    <p className={styles.bentoSubtitle}>
+                  <div className={styles.cardOverlayBack} />
+                  <div className={styles.cardContent}>
+                    <span className={styles.cardNumber}>0{benefit.id}</span>
+                    <h3 className={styles.cardTitle}>{benefit.back.title}</h3>
+                    <p className={styles.cardSubtitle}>
                       {benefit.back.subtitle}
                     </p>
                   </div>
+                  <div className={styles.cardGlow} />
                 </div>
               </div>
             </div>

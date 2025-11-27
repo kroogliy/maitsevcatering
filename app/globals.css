@@ -65,7 +65,7 @@ body {
     scroll-behavior: auto; /* Будет управляться Lenis на десктопе, smooth на мобильных */
     overflow-x: clip;
     min-height: 100vh;
-    /*background-color: #f9edda;*/
+    background-color: #f9edda;
 }
 
 /* Убираем padding когда гамбургер меню открыто */

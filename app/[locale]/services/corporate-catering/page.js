@@ -193,7 +193,9 @@ export default function CorporateCatering() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animations
+      /* ==========================
+         HERO ANIMATION
+      ========================== */
       const heroTl = gsap.timeline();
       heroTl
         .fromTo(
@@ -226,32 +228,46 @@ export default function CorporateCatering() {
           "-=0.3",
         );
 
-      // Stats counter animation
-      const statItems = document.querySelectorAll(`.${styles.statValue}`);
-      statItems.forEach((stat) => {
-        const target = stat.textContent;
-        const isNumber = /^\d+/.test(target);
-        if (isNumber) {
-          const num = parseInt(target);
-          gsap.fromTo(
-            stat,
-            { innerText: 0 },
-            {
-              innerText: num,
-              duration: 2,
-              ease: "power2.out",
-              snap: { innerText: 1 },
-              scrollTrigger: { trigger: stat, start: "top 85%" },
-              onUpdate: function () {
-                const suffix = target.replace(/\d+/, "");
-                stat.textContent = Math.floor(stat.innerText) + suffix;
-              },
+      /* ==========================
+         STATS ANIMATION (FIXED)
+      ========================== */
+
+      const statItems = gsap.utils.toArray(`.${styles.statValue}`);
+
+      statItems.forEach((el) => {
+        const raw = el.textContent.trim(); // ex: "6000+"
+        const digits = raw.match(/(\d+)/); // extract "6000"
+        if (!digits) return;
+
+        const number = parseInt(digits[1]); // 6000
+        const suffix = raw.replace(digits[1], ""); // "+"
+
+        // Store dynamic value on element
+        el.dataset.final = number;
+        el.dataset.suffix = suffix;
+
+        gsap.fromTo(
+          el,
+          { innerText: 0 },
+          {
+            innerText: number,
+            duration: 2,
+            ease: "power2.out",
+            snap: { innerText: 1 },
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
             },
-          );
-        }
+            onUpdate: function () {
+              el.textContent = Math.floor(el.innerText) + suffix;
+            },
+          },
+        );
       });
 
-      // Services reveal
+      /* ==========================
+         SERVICES REVEAL
+      ========================== */
       gsap.fromTo(
         `.${styles.servicesVisual}`,
         { clipPath: "inset(0 100% 0 0)" },
@@ -263,7 +279,9 @@ export default function CorporateCatering() {
         },
       );
 
-      // Process steps
+      /* ==========================
+         PROCESS STEPS
+      ========================== */
       gsap.fromTo(
         `.${styles.processStep}`,
         { opacity: 0, y: 60 },
@@ -277,7 +295,9 @@ export default function CorporateCatering() {
         },
       );
 
-      // Menu cards
+      /* ==========================
+         MENU CARDS
+      ========================== */
       gsap.fromTo(
         `.${styles.menuCard}`,
         { opacity: 0, y: 40, rotateX: 15 },
@@ -292,7 +312,9 @@ export default function CorporateCatering() {
         },
       );
 
-      // FAQ items
+      /* ==========================
+         FAQ ITEMS
+      ========================== */
       gsap.fromTo(
         `.${styles.faqItem}`,
         { opacity: 0, x: -30 },

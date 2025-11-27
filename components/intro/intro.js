@@ -66,7 +66,7 @@ export default function Intro() {
       // Анимация расправления круга в квадрат + расширение 90vw → 100vw
       gsap.to(shape, {
         borderRadius: "12px",
-        width: "90vw",
+        width: "70vw",
         x: 0,
         ease: "power3.inOut",
         duration: 1.2,
@@ -75,6 +75,7 @@ export default function Intro() {
           start: "top bottom",
           end: "top 60%",
           scrub: 1,
+          once: true,
         },
       });
 
