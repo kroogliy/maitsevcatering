@@ -136,6 +136,7 @@ export default function VenuesSection() {
             start: "top 85%",
             end: "top 50%",
             scrub: 1,
+            once: true,
           },
         },
       );

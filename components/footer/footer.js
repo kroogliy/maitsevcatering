@@ -65,18 +65,16 @@ export default function Footer() {
       { name: "Pop-up Catering", href: "/services/popup-catering" },
     ],
     company: [
-      { name: "About Us", href: "/about" },
-      { name: "Our Team", href: "/team" },
-      { name: "Careers", href: "/careers" },
-      { name: "Sustainability", href: "/sustainability" },
-      { name: "Blog", href: "/blog" },
+      { name: "Home", href: "/" },
+      { name: "Menu", href: "/menu/menu/georgian" },
+      { name: "Drinks", href: "/menu/drinks/soft-drinks" },
+      { name: "About us", href: "/about" },
+      { name: "Contact", href: "/contact" },
     ],
     resources: [
-      { name: "Menu Samples", href: "/menus" },
-      { name: "Gallery", href: "/gallery" },
-      { name: "Testimonials", href: "/testimonials" },
-      { name: "FAQ", href: "/faq" },
-      { name: "Contact", href: "/contact" },
+      { name: "Help Center", href: "/faq" },
+      { name: "Terms of Service", href: "/terms" },
+      { name: "Privacy Policy", href: "/privacy" },
     ],
   };
 
@@ -183,6 +181,22 @@ export default function Footer() {
                   Mon-Sun, 10:00-22:00
                 </span>
               </div>
+              <div className={styles.bottomRight}>
+                <div className={styles.socialLinks}>
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.socialLink}
+                      aria-label={social.name}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -256,30 +270,19 @@ export default function Footer() {
             <p className={styles.copyright}>
               © 2025 Maitsev Catering. All rights reserved.
             </p>
-            <div className={styles.legalLinks}>
-              <Link href="/terms">Terms of Service</Link>
-              <span className={styles.divider}>•</span>
-              <Link href="/privacy">Privacy Policy</Link>
-              <span className={styles.divider}>•</span>
-              <Link href="/cookies">Cookie Policy</Link>
-            </div>
           </div>
-
-          <div className={styles.bottomRight}>
-            <div className={styles.socialLinks}>
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialLink}
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
+          <div className={styles.developedBy}>
+            <p className={styles.bronicLabs}>
+              Developed & Designed by{" "}
+              <a
+                href="https://www.broniclabs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.bronicLabsLink}
+              >
+                Bronic Labs
+              </a>
+            </p>
           </div>
         </div>
       </div>

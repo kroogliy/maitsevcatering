@@ -7,8 +7,8 @@
     left: 0;
     right: 0;
     width: 100%;
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: #f9edda;
+    /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);*/
     z-index: 1000;
     transition: box-shadow 0.3s ease;
     text-transform: uppercase;

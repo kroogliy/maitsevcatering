@@ -1,13 +1,11 @@
 /* Footer Container */
 .footer {
     position: relative;
-    width: 100%;
-    min-height: 100vh;
+    /*width: 100%;*/
+    /*min-height: 100vh;*/
     margin-top: 0;
     overflow: visible;
 }
-
-/* Animated Shape Background */
 .footerShape {
     position: absolute;
     top: 0;
@@ -15,7 +13,6 @@
     right: 0;
     width: 100%;
     height: 100%;
-    /*min-height: 100vh;*/
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     border-radius: 10px 10px 0 0;
     z-index: 1;
@@ -26,7 +23,7 @@
 .footerContent {
     position: relative;
     z-index: 2;
-    padding: 8rem 8vw 4rem;
+    padding: 4rem 8vw 1rem;
     display: flex;
     flex-direction: column;
     gap: 5rem;
@@ -41,8 +38,8 @@
 .footerTop {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 6rem;
-    padding-bottom: 4rem;
+    /*gap: 6rem;*/
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -83,11 +80,11 @@
 
 .brandDescription {
     font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
     margin: 0;
-    line-height: 1.8;
+    line-height: 1.6;
     max-width: 500px;
 }
 
@@ -126,12 +123,13 @@
 .footerContact {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    padding: 3rem 0;
 }
 
 .contactTitle {
     font-family: "Rubik", sans-serif;
-    font-size: 1.1rem;
+    font-size: 2.1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -289,8 +287,9 @@ a.contactValue:hover {
 /* Bottom Section */
 .footerBottom {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
     gap: 2rem;
 }
 
@@ -301,9 +300,12 @@ a.contactValue:hover {
 }
 
 .copyright {
+    display: flex;
+    justify-content: center;
     font-family: "Montserrat", sans-serif;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
 }
 
@@ -328,6 +330,31 @@ a.contactValue:hover {
 .divider {
     color: rgba(255, 255, 255, 0.3);
     font-size: 0.7rem;
+}
+
+.developedBy {
+    /* можно добавить отступы или выравнивание при необходимости */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.bronicLabs {
+    font-family: "Jost", sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.bronicLabsLink {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none; /* убираем подчеркивание */
+    font-weight: 600; /* чуть жирнее для акцента */
+}
+
+.bronicLabsLink:hover {
+    text-decoration: underline; /* по желанию, эффект при наведении */
 }
 
 /* Social Links */
@@ -375,10 +402,6 @@ a.contactValue:hover {
         gap: 4rem;
     }
 
-    .footerTop {
-        gap: 4rem;
-    }
-
     .footerLinks {
         gap: 2.5rem;
     }
@@ -397,10 +420,6 @@ a.contactValue:hover {
     .footerContent {
         padding: 5rem 4vw 3rem;
         gap: 3.5rem;
-    }
-
-    .footerTop {
-        gap: 3rem;
     }
 
     .footerLinks {
@@ -429,7 +448,6 @@ a.contactValue:hover {
 
     .footerTop {
         grid-template-columns: 1fr;
-        gap: 3rem;
     }
 
     .footerLinks {
@@ -463,10 +481,6 @@ a.contactValue:hover {
         gap: 2.5rem;
     }
 
-    .footerTop {
-        padding-bottom: 3rem;
-    }
-
     .footerLinks {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -478,7 +492,7 @@ a.contactValue:hover {
     }
 
     .brandDescription {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .brandStats {
@@ -531,10 +545,6 @@ a.contactValue:hover {
     .footerContent {
         padding: 2.5rem 1rem 1.5rem;
         gap: 2rem;
-    }
-
-    .footerTop {
-        padding-bottom: 2rem;
     }
 
     .footerLinks {

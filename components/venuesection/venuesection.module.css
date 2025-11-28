@@ -262,14 +262,15 @@
 .cta {
     text-align: center;
     padding: 4rem 2rem;
-    background: #fafafa;
+    background: #233d4d;
     border-radius: 20px;
 }
 
 .ctaText {
     font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     font-size: 1.05rem;
-    color: #666666;
+    color: #fff;
     margin: 0 0 2rem 0;
 }
 
@@ -280,8 +281,8 @@
     font-family: "Rubik", sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    color: #ffffff;
-    background: #0a0a0a;
+    color: #000;
+    background: #fff;
     padding: 1.25rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
