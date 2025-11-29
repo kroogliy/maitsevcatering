@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -12,49 +13,88 @@ export default function Footer() {
   const footerRef = useRef(null);
   const shapeRef = useRef(null);
   const contentRef = useRef(null);
+  const pathname = usePathname();
+  const animationsRef = useRef({ shape: null, content: null });
 
   useEffect(() => {
-    const footer = footerRef.current;
     const shape = shapeRef.current;
+    const footer = footerRef.current;
     const content = contentRef.current;
 
-    if (!footer || !shape || !content) return;
+    if (!shape || !footer || !content) return;
 
-    // Анимация расправления круга в квадрат
-    gsap.to(shape, {
-      borderRadius: "500px 500px 0 0",
-      ease: "power3.inOut",
-      scrollTrigger: {
-        trigger: footer,
-        start: "top bottom",
-        end: "top 10%",
-        scrub: 1,
-      },
+    // Убиваем старые анимации если есть
+    if (animationsRef.current.shape) {
+      animationsRef.current.shape.kill();
+    }
+    if (animationsRef.current.content) {
+      animationsRef.current.content.kill();
+    }
+    ScrollTrigger.getAll().forEach((st) => {
+      if (st.vars.trigger === footer) st.kill();
     });
 
-    // Анимация появления контента
-    const contentElements = content.querySelectorAll(`.${styles.fadeIn}`);
-    gsap.fromTo(
-      contentElements,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
+    // ЖЁСТКО устанавливаем начальные значения через setAttribute
+    shape.setAttribute("style", "border-radius: 0 0 0 0 !important");
+
+    const fadeElements = content.querySelectorAll(`.${styles.fadeIn}`);
+    fadeElements.forEach((el) => {
+      el.setAttribute(
+        "style",
+        "opacity: 0 !important; transform: translateY(30px) !important",
+      );
+    });
+
+    // Небольшая задержка чтобы стили применились
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        // Создаём ScrollTrigger для shape
+        animationsRef.current.shape = ScrollTrigger.create({
+          trigger: footer,
+          start: "top bottom",
+          end: "top 10%",
+          scrub: 1,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const radius = 500 * (1 - progress);
+            shape.style.borderRadius = `${radius}px ${radius}px 0 0`;
+          },
+        });
+
+        // Создаём ScrollTrigger для контента
+        animationsRef.current.content = ScrollTrigger.create({
           trigger: footer,
           start: "top 30%",
-          toggleActions: "play none none none",
-        },
-      },
-    );
+          onEnter: () => {
+            gsap.to(fadeElements, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3.out",
+              overwrite: true,
+            });
+          },
+        });
+
+        ScrollTrigger.refresh();
+      });
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      if (animationsRef.current.shape) {
+        animationsRef.current.shape.kill();
+        animationsRef.current.shape = null;
+      }
+      if (animationsRef.current.content) {
+        animationsRef.current.content.kill();
+        animationsRef.current.content = null;
+      }
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.vars.trigger === footer) st.kill();
+      });
     };
-  }, []);
+  }, [pathname]);
 
   const footerLinks = {
     services: [
