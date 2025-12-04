@@ -19,7 +19,7 @@ export default function VenuesSection() {
       type: "Luxury Venue",
       image: "/images/catering/eventCatering.jpg",
       website: "https://example.com",
-      size: "large", // для разных размеров пузырей
+      size: "large",
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ export default function VenuesSection() {
       type: "Outdoor Venue",
       image: "/images/venues/venue3.jpg",
       website: "https://example.com",
-      size: "large",
+      size: "medium",
     },
     {
       id: 4,
@@ -49,40 +49,20 @@ export default function VenuesSection() {
       type: "Creative Space",
       image: "/images/venues/venue4.jpg",
       website: "https://example.com",
-      size: "medium",
+      size: "large",
     },
     {
       id: 5,
-      name: "Seaside Villa",
-      location: "Viimsi",
-      capacity: "30-100 guests",
-      type: "Intimate Setting",
-      image: "/images/venues/venue5.jpg",
-      website: "https://example.com",
-      size: "small",
-    },
-    {
-      id: 6,
       name: "Historic Manor",
       location: "Kadriorg",
       capacity: "150-400 guests",
       type: "Heritage Venue",
       image: "/images/venues/venue6.jpg",
       website: "https://example.com",
-      size: "large",
+      size: "medium",
     },
     {
-      id: 7,
-      name: "Art Gallery Space",
-      location: "Kalamaja",
-      capacity: "60-120 guests",
-      type: "Cultural Venue",
-      image: "/images/venues/venue7.jpg",
-      website: "https://example.com",
-      size: "small",
-    },
-    {
-      id: 8,
+      id: 6,
       name: "Waterfront Pavilion",
       location: "Noblessner",
       capacity: "100-250 guests",
@@ -116,7 +96,7 @@ export default function VenuesSection() {
     // Анимация каждого venue bubble
     const venueCards = section.querySelectorAll(`.${styles.venueCard}`);
 
-    venueCards.forEach((card, index) => {
+    venueCards.forEach((card) => {
       // Трансформация из круга в квадрат
       gsap.fromTo(
         card,
@@ -199,9 +179,6 @@ export default function VenuesSection() {
                 style={{ backgroundImage: `url(${venue.image})` }}
               />
               <div className={styles.venueOverlay} />
-
-              {/* Badge */}
-              <div className={styles.venueBadge}>{venue.type}</div>
 
               {/* Info */}
               <div className={styles.venueInfo}>

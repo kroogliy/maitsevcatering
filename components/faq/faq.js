@@ -40,8 +40,8 @@ export default function FAQ() {
           a: "Our culinary team specializes in a diverse range of cuisines including Georgian, Italian, French, Mediterranean, Asian Fusion, and Japanese (including sushi). We also excel at modern European cuisine, street food concepts, and custom fusion menus. Each menu is crafted to match your event's theme and preferences.",
         },
         {
-          q: "Can you accommodate dietary restrictions and allergies?",
-          a: "Absolutely. We have extensive experience with vegetarian, vegan, gluten-free, lactose-free, halal, kosher, and nut-free requirements. Our kitchen follows strict protocols to prevent cross-contamination. Please inform us of all dietary needs during booking so we can create safe, delicious alternatives.",
+          q: "Do you take dietary restrictions and allergies into account?",
+          a: "Absolutely. We have extensive experience working with vegetarians, vegans, people with gluten and lactose intolerance, as well as halal, kosher, and nut-free requirements. Our kitchen follows strict protocols to prevent cross-contamination. Please let us know about any dietary requirements when booking so that we can create safe and delicious alternatives. For example, we provide gluten-free and lactose-free options for: pasta, pizza, sushi.",
         },
         {
           q: "Can I customize the menu for my event?",
@@ -100,7 +100,7 @@ export default function FAQ() {
       questions: [
         {
           q: "What is included in your catering service?",
-          a: "Our full-service catering includes menu planning, food preparation, delivery, professional setup, service staff, tableware (upon request), and complete cleanup. We handle every detail so you can focus on your guests. Equipment rental, decoration, and bar services are available as add-ons.",
+          a: "Our full-service catering includes menu planning, food preparation, delivery, professional setup, service staff, tableware (upon request), and complete cleanup (upon request). We handle every detail so you can focus on your guests. Equipment rental, decoration, and bar services are available as add-ons.",
         },
         {
           q: "Do you provide staff for events?",
