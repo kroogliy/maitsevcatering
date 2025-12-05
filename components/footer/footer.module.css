@@ -13,7 +13,7 @@
     right: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #022310;
     border-radius: 10px 10px 0 0;
     z-index: 1;
     will-change: border-radius;

@@ -33,13 +33,13 @@ export default function Benefits() {
       front: {
         title: "Culinary Excellence",
         subtitle:
-          "Gourmet dishes for every lifestyle. Vegan, vegetarian, lactose-free, gluten-free options included.",
+          "Gourmet creations that delight every palate — from classic comfort foods to exotic specialties.",
         image: "/images/culinary.JPG",
       },
       back: {
-        title: "Global Flavors, Crafted Daily",
+        title: "Global Flavors, Perfected",
         subtitle:
-          "Georgian, Italian, Street Food, Sushi, Pizza, Desserts — made with fresh, locally sourced ingredients.",
+          "Italian, Georgian, Sushi, Grill, Desserts — expertly crafted and beautifully presented for your event.",
         image: "/images/catering/corporate.jpeg",
       },
     },
@@ -48,13 +48,13 @@ export default function Benefits() {
       front: {
         title: "6,000+ Beverages",
         subtitle:
-          "One of the largest alcohol & non-alcohol selections. From everyday essentials to rare collectibles.",
+          "A world of drinks at your fingertips — from everyday favorites to rare and collectible spirits.",
         image: "/images/alcohol.JPG",
       },
       back: {
-        title: "Direct Supply Advantage",
+        title: "Direct & Exclusive",
         subtitle:
-          "17+ beverage categories. No intermediaries — just quality, authenticity, and fair pricing.",
+          "Alcohol, cocktails, wines — delivered directly from producers for unmatched selection and quality.",
         image: "/images/alcohol2.JPG",
       },
     },
@@ -63,13 +63,13 @@ export default function Benefits() {
       front: {
         title: "Fully Tailored Experience",
         subtitle:
-          "Custom menus, flexible formats, curated to match your event's style and atmosphere.",
+          "Events designed around your vision — menus, formats, and styles flexibly adapted to your needs.",
         image: "/images/catering/chefCatering.jpg",
       },
       back: {
-        title: "Your Vision, Perfectly Executed",
+        title: "Your Event, Your Way",
         subtitle:
-          "Corporate events, weddings, private parties — we adapt to any scale and concept.",
+          "Corporate meetings, weddings, private parties — we ensure every detail aligns with your concept.",
         image: "/images/catering/wedding.jpg",
       },
     },
@@ -78,13 +78,13 @@ export default function Benefits() {
       front: {
         title: "End-to-End Service",
         subtitle:
-          "Professional chefs, sommeliers, bartenders, and event managers — we handle everything.",
+          "A professional team handles every aspect — chefs, bartenders, waitstaff, and full logistics.",
         image: "/images/catering/sommelier.jpg",
       },
       back: {
-        title: "Flawless Performance",
+        title: "Seamless Execution",
         subtitle:
-          "Setup, service, logistics — always on time. 500+ successful events annually.",
+          "From setup to cleanup, every element is taken care of. You focus on your guests, we handle the rest.",
         image: "/images/catering/eventCatering.jpg",
       },
     },
@@ -96,10 +96,8 @@ export default function Benefits() {
         <div
           className={`${styles.header} ${isVisible ? styles.animateIn : ""}`}
         >
-          <h2 className={styles.sectionTitle}>Why Choose Us</h2>
-          <p className={styles.sectionSubtitle}>
-            Excellence in every detail, tailored to your vision
-          </p>
+          <span className={styles.label}>Perks & Benefits</span>
+          <h2 className={styles.sectionTitle}>The Maitsev Difference</h2>
         </div>
 
         <div className={styles.grid}>

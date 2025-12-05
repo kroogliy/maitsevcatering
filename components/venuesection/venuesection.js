@@ -150,15 +150,10 @@ export default function VenuesSection() {
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
-          <span className={styles.label}>Partner Venues</span>
+          <span className={styles.label}>Venues</span>
           <h2 className={styles.title}>
             Exceptional Spaces for Unforgettable Events
           </h2>
-          <p className={styles.subtitle}>
-            Collaborate with Estonia's most prestigious venues. Each location is
-            carefully selected to provide the perfect backdrop for your
-            celebration.
-          </p>
         </div>
 
         {/* Venues Grid */}
